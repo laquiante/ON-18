@@ -8,10 +8,16 @@
     - name: add cumulus user
       ansible.builtin.user: 
         name: cumulus
-        group: admin
+        group: cumulus
         shell: /bin/bash
         comment: "admin user"
         password: "$6$alq$WRoBPYvpxl0kxnfgcCB6SZ1MxRmBV8/aHhwGAOn17fp8pszaAsVzxy7qPUBHX71ovin1epXCbleKgiUcqlrzT1"  
+        
+    - name: Make sudo without password 
+      copy:
+        dest: /etc/sudoers.d/80-ansible-sudo-user
+        content: "cumulus ALL=(ALL) NOPASSWD:ALL"
+        mode: 0440
         
     - name: create dir
       ansible.builtin.file:
@@ -27,7 +33,7 @@
         src: /home/ubuntu/.ssh/
         dest: /home/cumulus/.ssh/
         owner: cumulus
-        group: admin
+        group: cumulus
         mode: u+rw
         
     - name: change permission for rsa private key
