@@ -17,5 +17,5 @@
       ansible.posix.authorized_key:
         user: cumulus
         state: present
-        key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+        key: "{{ lookup('file', '/home/ubuntu/.ssh/id_rsa.pub') }}"
         
