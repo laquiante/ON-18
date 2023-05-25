@@ -16,7 +16,7 @@
     - name: Make sudo without password 
       copy:
         dest: /etc/sudoers.d/80-ansible-sudo-user
-        content: "admin ALL=(ALL) NOPASSWD:ALL"
+        content: "cumulus ALL=(ALL) NOPASSWD:ALL"
         mode: 0440
         
     - name: create dir
