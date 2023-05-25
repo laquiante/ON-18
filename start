@@ -3,8 +3,7 @@
 
 # ALQ, Hamburg 2023
 
-PFAD="/home/cumulus/ON-18/starts"
-sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts $PFAD/api_file.yaml
+sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/starts/api_file.yaml
 
 erg=$(curl  -u 'cumulus:CumulusLinux!' --insecure https://192.168.200.2:8765/cue_v1/interface)
 echo "$erg"
