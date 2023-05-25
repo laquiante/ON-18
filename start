@@ -4,6 +4,6 @@
 # ALQ, Hamburg 2023
 
 sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/nvue/api_file.yaml
-sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/netplan/hosts.yaml
+sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/netplan/host.yaml
 
 exit 0
