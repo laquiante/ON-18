@@ -2,9 +2,29 @@
 
 # ALQ, 汉堡 二零二三 年
 
+CUMULUS_HOME="/home/cumulus"
+
 sudo ansible-playbook /home/ubuntu/ON-18/.main.yaml
 
 echo "Please consider switching to user to cumulus"
 echo "Please change into the now newley provided directory"
 
+sudo -i -u cumulus bash << EOF
+  cd "$CUMULUS_HOME"
+  echo "DIR :$PWD"
+  if [ ! -d "$CUMULUS_HOME/ON-18" ]; then
+    git clone https://github.com/laquiante/ON-18
+    echo "git clone done"
+  fi
+  if [ -d "$CUMULUS_HOME/ON-18" ]; then
+    cd $CUMULUS_HOME/ON-18
+    sudo chmod 744 $CUMULUS_HOME/ON-18/start
+    export PATH="$CUMULUS_HOME/ON-18/:$PATH" 
+    echo "calling /home/cumulus/ON-18/starts"
+    sudo bash "$CUMULUS_HOME/ON-01/start"
+  fi
+
+EOF
+echo "Please consider switching to user to cumulus"
+echo "Please change into the now provided ON-01 directory"
 exit 0 
