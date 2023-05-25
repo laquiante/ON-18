@@ -3,6 +3,6 @@
 
 # ALQ, Hamburg 2023
 
-sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/starts/api_file.yaml
+sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/nvue/api_file.yaml
 
 exit 0
