@@ -39,4 +39,4 @@
       copy:
         dest: "/home/cumulus/.ssh/config"
         content: |
-        StrictHostKeyChecking no
+          StrictHostKeyChecking no
