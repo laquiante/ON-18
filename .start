@@ -9,6 +9,8 @@ USERPASS="Academy123"
 CUMULUS_HOME="/home/cumulus"
 KEYLOCATION="$CUMULUS_HOME/.ssh/authorized_keys"
 
+echo "$CUMULUS_HOME"
+
 sudo -i -u cumulus bash << EOF
   echo "USER :$USER"
   echo "DIR  :$PWD"
