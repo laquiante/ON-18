@@ -14,7 +14,7 @@ echo "$CUMULUS_HOME"
 sudo -i -u cumulus bash << EOF
   echo "USER :$USER"
   echo "DIR  :$PWD"
-  cd "$CUMULUS_HOME"
+  cd "/home/cumulus"
   echo "DIR :$PWD"
 
   if [ ! -d "$CUMULUS_HOME/ON-18" ]; then
