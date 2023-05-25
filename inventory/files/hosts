@@ -27,5 +27,6 @@ spine4 ansible_host=192.168.200.5
 [all:vars]
 ansible_user=cumulus
 ansible_become_pass=Academy123
+ansible_ssh_pass=Academy123
 ansible_ssh_common_args='-o UserKnownHostsFile=/dev/null'
 
