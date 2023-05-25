@@ -4,6 +4,11 @@
 
 sudo ansible-playbook /home/ubuntu/ON-18/.main.yaml
 
+cd /home/cumulus
+echo "$PWD"
+
+exit 0
+
 USER="cumulus"
 USERPASS="Academy123"
 CUMULUS_HOME="/home/cumulus"
