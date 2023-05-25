@@ -25,6 +25,4 @@ sudo -i -u cumulus bash << EOF
   fi
 
 EOF
-echo "Please consider switching to user to cumulus"
-echo "Please change into the now provided ON-01 directory"
 exit 0 
