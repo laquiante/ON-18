@@ -1,0 +1,37 @@
+- 
+  hosts: localhost
+  become: true
+  user: ubuntu
+  gather_facts: false
+
+  tasks:
+    - name: add cumulus user
+      ansible.builtin.user: 
+        name: cumulus
+        group: admin
+        shell: /bin/bash
+        comment: "admin user"
+        password: "$6$alq$WRoBPYvpxl0kxnfgcCB6SZ1MxRmBV8/aHhwGAOn17fp8pszaAsVzxy7qPUBHX71ovin1epXCbleKgiUcqlrzT1"  
+        
+    - name: create dir
+      ansible.builtin.file:
+        path: /home/cumulus/.ssh
+        state: directory
+        recurse: yes
+        mode: '0755'
+        owner: cumulus
+        group: cumulus
+      
+    - name: copy dir    
+      ansible.builtin.copy:
+        src: /home/ubuntu/.ssh/
+        dest: /home/cumulus/.ssh/
+        owner: cumulus
+        group: admin
+        mode: u+rw
+        
+    - name: change permission for rsa private key
+      ansible.builtin.file:
+        path: /home/cumulus/.ssh/id_rsa
+        mode: '0600'
+   
