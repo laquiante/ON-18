@@ -16,7 +16,8 @@ sudo -i -u cumulus bash << EOF
 
   if [ -d "/home/cumulus/ON-18" ]; then
     cd /home/cumulus/ON-18
-    chmod 744 /home/cumulus/ON-18/starts 
+    sudo chmod 744 /home/cumulus/ON-18/starts 
+    sudo chown -R cumulus:admin /home/cumulus/ON-18
     sudo bash "/home/cumulus/ON-18/start"
   fi
 
