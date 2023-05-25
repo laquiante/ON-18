@@ -9,7 +9,7 @@ erg=$(curl  -u 'cumulus:CumulusLinux!' --insecure https://192.168.200.2:8765/cue
 echo "$erg"
 
 if [[ $erg == *"Authorization Required"* ]]; then
-  echo $WARNUNG
+  echo "nicht gut"
 fi
 
 curl -u 'cumulus:CumulusLinux!' --insecure https://192.168.200.2:8765/cue_v1/interface
@@ -19,7 +19,7 @@ curl -u 'cumulus:CumulusLinux!' --insecure https://192.168.200.2:8765/cue_v1/int
 #erg=$(curl  -u 'cumulus:BadPassword' --insecure https://192.168.200.2:8765/cue_v1/interface)
 
 #if [[ $erg == *"Authorization Required"* ]]; then
-#  echo $WARNUNG
+#  echo "nicht gut"
 #fi
 
 exit 0
