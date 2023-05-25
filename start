@@ -3,7 +3,7 @@
 
 # ALQ, Hamburg 2023
 
-PFAD="$HOME/ON-18/start"
+PFAD="$HOME/ON-18/starts"
 sudo bash "$PFAD/ownership"
 
 echo
