@@ -30,7 +30,5 @@ KEYLOCATION="$CUMULUS_HOME/.ssh/authorized_keys"
 # ssh-copy-id cumulus@host4
 # echo "Milestone-03: ssh-copy-id done"
 
-sudo ansible-playbook /home/ubuntu/ON-18/.key.yaml
 
-echo "Milestone-04: pub key transfer done"
 
