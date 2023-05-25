@@ -2,14 +2,6 @@
 - name: call oob-mgmt-server preparation
   ansible.builtin.import_playbook: .oob-mgmt-server.yaml
  
-- name: call host1 preparation
-  ansible.builtin.import_playbook: .host1.yaml
+- name: call host preparation
+  ansible.builtin.import_playbook: .host.yaml
   
-- name: call host2 preparation
-  ansible.builtin.import_playbook: .host2.yaml
-   
-- name: call host3 preparation
-  ansible.builtin.import_playbook: .host3.yaml
-  
-- name: call host4 preparation
-  ansible.builtin.import_playbook: .host4.yaml
