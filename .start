@@ -21,7 +21,7 @@ sudo -i -u cumulus bash << EOF
     sudo chmod 744 $CUMULUS_HOME/ON-18/start
     export PATH="$CUMULUS_HOME/ON-18/:$PATH" 
     echo "calling /home/cumulus/ON-18/starts"
-    sudo bash "$CUMULUS_HOME/ON-01/start"
+    sudo bash "$CUMULUS_HOME/ON-18/start"
   fi
 
 EOF
