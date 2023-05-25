@@ -1,0 +1,64 @@
+- hosts: host
+  name: netplan
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: cloud file entfernen
+      ansible.builtin.file:
+        path: /etc/netplan/50-cloud-init.yaml
+        state: absent
+    - name: cloud file entfernen
+      ansible.builtin.file:
+        path: /etc/netplan/config.yaml
+        state: absent
+    - name: copy netplan yaml
+      copy:
+        src: /home/cumulus/ON-18/practice-01/{{ inventory_hostname }}
+        dest: /etc/netplan/config.yaml
+    - name: apply netplan yaml
+      shell: netplan apply
+       
+    - name: Check interface 2
+      shell: /sbin/ip -br -4 a | grep 'eth2'
+      ignore_errors: yes
+      register: result
+    - debug: msg={{ result.stdout }}
+  
+- hosts: cumulus-nodes
+  name: startup
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: copy startup.yaml
+      copy:
+        src: /home/cumulus/ON-18/practice-01/{{ inventory_hostname }}
+        dest: /etc/nvue.d/startup.yaml
+    # aktivieren
+    - name: activate changes for leaf
+      shell:  nv config apply startup -y
+      
+# optional lab task      
+      
+- hosts: leaf1
+  name: configuring of PTM
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: PTM
+      copy:
+        src: /home/cumulus/ON-18/inventory/files/topology.dot
+        dest: /etc/ptm.d/topology.dot
+        mode: '0644'
+        owner: 'root'
+        group: 'root'
+      notify: restart_ptm
+
+  handlers:
+    - name: restart_ptm
+      service:
+        name=ptmd
+        state=restarted
+      listen: restart_ptm
+
+# Wenn der Wert für die Schnittstelle der Name und nicht die Adresse sein soll:
+# [lldpcli] # configure lldp portidsubtype ifname
