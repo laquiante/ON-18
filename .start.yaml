@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# ALQ, 汉堡 二零二三 年
+
+sudo ansible-playbook /home/ubuntu/ON-18/.main.yaml
+
+echo "Milestone-01: 5 playbooks"
+
+# Wirklich kein best practice
+
+USER="cumulus"
+USERPASS="Academy123"
+TARGET1="host1"
+TARGET2="host2"
+TARGET3="host3"
+TARGET4="host4"
+
+CUMULUS_HOME="/home/cumulus"
+echo "cumulus_home :$CUMULUS_HOME"
+
+KEYLOCATION="$CUMULUS_HOME/.ssh/authorized_keys"
+
+# geht noch nicht wirklich oder es ist mal wieder zu spät zum denken...
+#echo "$USERPASS" | sshpass ssh-copy-id -f -i /home/ubuntu/.ssh/id_rsa.pub "$USER"@"$TARGET1"
+#echo "$USERPASS" | sshpass ssh-copy-id -f -i /home/ubuntu/.ssh/id_rsa.pub "$USER"@"$TARGET2"
+
+# ssh-copy-id cumulus@host1
+# ssh-copy-id cumulus@host2
+# ssh-copy-id cumulus@host3
+# ssh-copy-id cumulus@host4
+# echo "Milestone-03: ssh-copy-id done"
+
+sudo ansible-playbook /home/ubuntu/ON-18/.key.yaml
+
+echo "Milestone-04: pub key transfer done"
+
