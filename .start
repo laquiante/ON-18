@@ -4,26 +4,7 @@
 
 sudo ansible-playbook /home/ubuntu/ON-18/.main.yaml
 
-cd /home/cumulus
-echo "$PWD"
-
-sudo -i -u cumulus bash << EOF
-
-  if [ ! -d "/home/cumulus/ON-18" ]; then
-    sudo git clone https://github.com/laquiante/ON-18
-    echo "git clone done"
-  fi
-
-  if [ -d "/home/cumulus/ON-18" ]; then
-    cd /home/cumulus/ON-18
-    sudo chmod 744 /home/cumulus/ON-18/starts 
-    sudo chown -R cumulus:admin /home/cumulus/ON-18
-    sudo bash "/home/cumulus/ON-18/start"
-  fi
-
-EOF
-
-
 echo "Please consider switching to user to cumulus"
 echo "Please change into the now newley provided directory"
+
 exit 0 
