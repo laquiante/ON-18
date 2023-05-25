@@ -4,31 +4,27 @@
 
 sudo ansible-playbook /home/ubuntu/ON-18/.main.yaml
 
-echo "Milestone-01: 5 playbooks"
-
-# Wirklich kein best practice
-
 USER="cumulus"
 USERPASS="Academy123"
-TARGET1="host1"
-TARGET2="host2"
-TARGET3="host3"
-TARGET4="host4"
-
 CUMULUS_HOME="/home/cumulus"
-echo "cumulus_home :$CUMULUS_HOME"
-
 KEYLOCATION="$CUMULUS_HOME/.ssh/authorized_keys"
 
-# geht noch nicht wirklich oder es ist mal wieder zu spät zum denken...
-#echo "$USERPASS" | sshpass ssh-copy-id -f -i /home/ubuntu/.ssh/id_rsa.pub "$USER"@"$TARGET1"
-#echo "$USERPASS" | sshpass ssh-copy-id -f -i /home/ubuntu/.ssh/id_rsa.pub "$USER"@"$TARGET2"
+sudo -i -u cumulus bash << EOF
+  echo "USER :$USER"
+  echo "DIR  :$PWD"
+  cd "$CUMULUS_HOME"
+  echo "DIR :$PWD"
 
-# ssh-copy-id cumulus@host1
-# ssh-copy-id cumulus@host2
-# ssh-copy-id cumulus@host3
-# ssh-copy-id cumulus@host4
-# echo "Milestone-03: ssh-copy-id done"
+  if [ ! -d "$CUMULUS_HOME/ON-18" ]; then
+    git clone https://github.com/laquiante/ON-18
+    echo "git clone done"
+  fi
+  if [ -d "$CUMULUS_HOME/ON-18" ]; then
+    cd $CUMULUS_HOME/ON-18
+    sudo chmod 744 $CUMULUS_HOME/ON-18/prepare
+    export PATH="$CUMULUS_HOME/ON-18/:$PATH" 
+    echo "calling /home/cumulus/ON-01/prepare"
+    sudo bash "$CUMULUS_HOME/ON-01/prepare"
+  fi
 
-
-
+EOF
