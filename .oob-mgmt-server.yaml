@@ -35,3 +35,8 @@
         path: /home/cumulus/.ssh/id_rsa
         mode: '0600'
    
+    - name: Für das Labor wird die Prüfung ausgeschaltet
+      copy:
+        dest: "/home/cumulus/.ssh/config"
+        content: |
+        StrictHostKeyChecking no
