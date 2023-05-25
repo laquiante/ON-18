@@ -7,31 +7,15 @@ sudo ansible-playbook /home/ubuntu/ON-18/.main.yaml
 cd /home/cumulus
 echo "$PWD"
 
+if [ ! -d "/home/cumulus/ON-18" ]; then
+  sudo git clone https://github.com/laquiante/ON-18
+  echo "git clone done"
+fi
+if [ -d "/home/cumulus/ON-18" ]; then
+  cd /home/cumulus/ON-18
+  chmod 744 /home/cumulus/ON-18/prepare 
+  echo "calling /home/cumulus/ON-18/start"
+  sudo bash "/home/cumulus/ON-18/start"
+fi
+
 exit 0
-
-USER="cumulus"
-USERPASS="Academy123"
-CUMULUS_HOME="/home/cumulus"
-KEYLOCATION="$CUMULUS_HOME/.ssh/authorized_keys"
-
-echo "$CUMULUS_HOME"
-
-sudo -i -u cumulus bash << EOF
-  echo "USER :$USER"
-  echo "DIR  :$PWD"
-  cd "/home/cumulus"
-  echo "DIR :$PWD"
-
-  if [ ! -d "$CUMULUS_HOME/ON-18" ]; then
-    sudo git clone https://github.com/laquiante/ON-18
-    echo "git clone done"
-  fi
-  if [ -d "$CUMULUS_HOME/ON-18" ]; then
-    cd $CUMULUS_HOME/ON-18
-    sudo chmod 744 $CUMULUS_HOME/ON-18/prepare
-    export PATH="$CUMULUS_HOME/ON-18/:$PATH" 
-    echo "calling /home/cumulus/ON-18/start"
-    sudo bash "$CUMULUS_HOME/ON-18/start"
-  fi
-
-EOF
