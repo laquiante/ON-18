@@ -1,0 +1,12 @@
+- hosts: leafspine
+  name: startup
+  become: yes
+  gather_facts: no
+  ignore_errors: yes
+  tasks:
+    - name: cp api_file
+      copy:
+        src: /home/cumulus/ON-18/preparation/api_file
+        dest: /home/cumulus
+    - name: run it
+      shell: sudo bash /home/cumulus/api_file
