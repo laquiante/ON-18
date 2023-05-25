@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# ALQ, Hamburg 2023
-
-sudo ln -s /etc/nginx/sites-{available,enabled}/nvue.conf
-sudo sed -i 's/listen localhost:8765 ssl;/listen 0.0.0.0:8765 ssl;/g' /etc/nginx/sites-available/nvue.conf
-sudo systemctl restart nginx
