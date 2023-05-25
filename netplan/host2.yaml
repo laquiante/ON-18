@@ -8,3 +8,7 @@ network:
       dhcp4: false
       addresses:
       - 172.16.1.2/24
+    eth3:
+      dhcp4: false
+      addresses:
+      - 172.16.2.2/24
