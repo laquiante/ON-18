@@ -22,7 +22,7 @@ sudo -i -u cumulus bash << EOF
 
 EOF
 
-clear
+
 echo "Please consider switching to user to cumulus"
 echo "Please change into the now newley provided directory"
 exit 0 
