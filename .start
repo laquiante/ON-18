@@ -13,7 +13,7 @@ if [ ! -d "/home/cumulus/ON-18" ]; then
 fi
 if [ -d "/home/cumulus/ON-18" ]; then
   cd /home/cumulus/ON-18
-  chmod 744 /home/cumulus/ON-18/prepare 
+  chmod 744 /home/cumulus/ON-18/starts 
   echo "calling /home/cumulus/ON-18/start"
   sudo bash "/home/cumulus/ON-18/start"
 fi
