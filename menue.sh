@@ -6,6 +6,15 @@ echo "*            Welcome to our Cumulus Linux Professional Bootcamp / Workshop
 echo "*                                                                                                    *"
 echo "*                  ALQ & the Rocket Trutles, Hamburg 2023                                            *"
 echo "*                                                                                                    *"
+echo "*            Menue consolidating multiple classes/offerings/workshops                                *"
+echo "*                                3 day professional bootcamp                                         *"
+echo "*                                5 day XL professional bootcamp                                      *"
+echo "*                                                                                                    *"
+echo "*                                NVUE API workshop                                                   *"
+echo "*                                HPC monitoring workhsop                                             *"
+echo "*                                Automation workshop                                                 *"
+echo "*                                                                                                    *"
+echo "*                                                                                                    *"
 echo "************************************* end ************************************************************"
 echo
 echo 
