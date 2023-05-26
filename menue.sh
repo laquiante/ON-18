@@ -16,7 +16,7 @@ do
     case $opt in
         "Cleanup")
             echo "cleaning up the environment"
-            sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/cleanup/main.yaml
+            sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/.cleanup/main.yaml
             break
             ;;
         "Practice-01")
