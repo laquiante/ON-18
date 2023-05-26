@@ -39,7 +39,7 @@
       
 # optional lab task      
       
-- hosts: leaf1
+- hosts: leafspine
   name: configuring of PTM
   become: yes
   gather_facts: no
