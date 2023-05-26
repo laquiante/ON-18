@@ -14,7 +14,7 @@ echo "*                                NVUE API workshop                        
 echo "*                                HPC monitoring workhsop                                             *"
 echo "*                                Automation workshop                                                 *"
 echo "*                                                                                                    *"
-echo "*                                                                                                    *"
+echo "*            intentionally written without roles, tasks and templates                                *"
 echo "************************************* end ************************************************************"
 echo
 echo 
