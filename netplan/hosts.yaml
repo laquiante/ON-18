@@ -24,5 +24,3 @@
       register: result
     - debug: msg={{ result.stdout }}
     
-    - name: Unconditionally reboot the machine with all defaults
-      ansible.builtin.reboot:
