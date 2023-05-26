@@ -24,7 +24,7 @@
       register: result
     - debug: msg={{ result.stdout }}
   
-- hosts: cumulus-nodes
+- hosts: leafspine
   name: startup
   become: yes
   gather_facts: no
