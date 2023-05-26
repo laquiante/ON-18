@@ -5,5 +5,67 @@
 
 sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/nvue/api_file.yaml
 sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/netplan/hosts.yaml
+if [ -f /home/cumulus/ON-18/.additional.conf ]; then
+        . /home/cumulus/ON-18/.additional.conf
+fi
+echo
+echo "********************************* description ********************************************************"
+echo "*                                                                                                    *"
+echo "*            Welcome to our Cumulus Linux Professional Bootcamp / Workshop                           *"
+echo "*                                                                                                    *"
+echo "*                  ALQ & the Rocket Trutles, Hamburg 2023                                            *"
+echo "*                                                                                                    *"
+echo "************************************* end ************************************************************"
+echo
+echo 
+PS3='Please enter your choice: '
+options=("Cleanup" "Practice-01" "Practice-02" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Cleanup")
+            echo "cleaning up the environment"
+            sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/cleanup/main.yaml
+            break
+            ;;
+        "Practice-01")
+            echo "Practice-01"
+            break
+            ;;
+        "Practice-02")
+            echo "Practice-02"
+            break
+            ;;
+        "Practice-03")
+            echo "Practice-03"
+            break
+            ;;
+        "Practice-04")
+            echo "Practice-04"
+            break
+            ;;
+         "Practice-05")
+            echo "Practice-05"
+            break
+            ;;
+        "Practice-06")
+            echo "Practice-06"
+            break
+            ;;
+        "Practice-07")
+            echo "Practice-07"
+            break
+            ;;
+            "Practice-08")
+            echo "Practice-08"
+            break
+            ;;           
+            
+        "Quit")
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
 
 exit 0
