@@ -1,0 +1,27 @@
+- set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '2': {}
+            '3': {}
+    system:
+      hostname: spine3
+    interface:
+      swp1-2:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      vlan2:
+        ip:
+          address:
+            172.16.2.254/24: {}
+        vlan: 2
+      vlan2-3:
+        type: svi
+      vlan3:
+        ip:
+          address:
+            172.16.3.254/24: {}
+        vlan: 3
