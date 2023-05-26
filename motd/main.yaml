@@ -1,0 +1,10 @@
+- hosts: leafspine
+  name: startup
+  become: yes
+  gather_facts: no
+  ignore_errors: yes
+  tasks:
+    - name: set motd
+      copy:
+        src: /home/cumulus/ON-18/inventory/files/motd.sh
+        dest: /etc/profile.d/motd.sh
