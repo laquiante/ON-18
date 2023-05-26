@@ -1,0 +1,7 @@
+---
+- set:
+    system:
+      hostname: spine4
+    interface:
+      swp1-4:
+        type: swp
