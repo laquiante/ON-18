@@ -1,0 +1,7 @@
+---
+- set:
+    system:
+      hostname: leaf2
+    interface:
+      swp1-2,5-6,8-9:
+        type: swp
