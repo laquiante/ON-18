@@ -1,0 +1,13 @@
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+      dhcp4: true
+    eth2:
+      dhcp4: false
+      addresses:
+      - 172.16.10.18/24
+      routes:
+      - to: 172.16.0.0/16
+        via: 172.16.10.254
