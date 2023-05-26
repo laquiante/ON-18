@@ -6,7 +6,7 @@
   tasks:
     - name: cp api_file
       copy:
-        src: /home/cumulus/ON-18/nvue/api_file
+        src: /home/cumulus/ON-18/.nvue/api_file
         dest: /home/cumulus
     - name: run it
       shell: sudo bash /home/cumulus/api_file
