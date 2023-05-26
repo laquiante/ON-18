@@ -1,0 +1,14 @@
+graph "ALQ" {
+"spine3":"swp1" -- "leaf1":"swp1"
+"spine3":"swp2" -- "leaf2":"swp2"
+"spine3":"swp3" -- "spine4":"swp3"
+"spine3":"swp4" -- "spine4":"swp4"
+"spine4":"swp1" -- "leaf2":"swp1"
+"spine4":"swp2" -- "leaf1":"swp2"
+"leaf1":"swp5" -- "leaf2":"swp5"
+"leaf1":"swp6" -- "leaf2":"swp6"
+"leaf1":"swp8" -- "host1":"44:38:39:00:00:11"
+"leaf1":"swp9" -- "host2":"44:38:39:00:00:13"
+"leaf2":"swp8" -- "host3":"44:38:39:00:00:15"
+"leaf2":"swp9" -- "host4":"44:38:39:00:00:17"
+}
