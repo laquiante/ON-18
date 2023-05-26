@@ -1,0 +1,47 @@
+- set:
+    evpn:
+      enable: on
+    nve:
+      vxlan:
+        enable: on
+    router:
+      bgp:
+        autonomous-system: 65100
+        enable: on
+        router-id: 172.16.100.3
+    system:
+      hostname: spine3
+    vrf:
+      default:
+        router:
+          bgp:
+            address-family:
+              ipv4-unicast:
+                enable: on
+                network:
+                  172.16.100.3/32: {}
+              l2vpn-evpn:
+                enable: on
+            autonomous-system: 65100
+            enable: on
+            neighbor:
+              swp1:
+                address-family:
+                  l2vpn-evpn:
+                    enable: on
+                remote-as: external
+                type: unnumbered
+              swp2:
+                address-family:
+                  l2vpn-evpn:
+                    enable: on
+                remote-as: external
+                type: unnumbered
+    interface:
+      lo:
+        ip:
+          address:
+            172.16.100.3/32: {}
+        type: loopback
+      swp1-2:
+        type: swp
