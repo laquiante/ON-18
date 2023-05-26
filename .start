@@ -18,10 +18,10 @@ sudo -i -u cumulus bash << EOF
   fi
   if [ -d "$CUMULUS_HOME/ON-18" ]; then
     cd $CUMULUS_HOME/ON-18
-    sudo chmod 744 $CUMULUS_HOME/ON-18/start
+    sudo chmod 744 $CUMULUS_HOME/ON-18/start.sh
     export PATH="$CUMULUS_HOME/ON-18/:$PATH" 
-    echo "calling /home/cumulus/ON-18/start"
-    sudo bash "$CUMULUS_HOME/ON-18/start"
+    echo "calling /home/cumulus/ON-18/start.sh"
+    sudo bash "$CUMULUS_HOME/ON-18/start.sh"
   fi
 
 EOF
