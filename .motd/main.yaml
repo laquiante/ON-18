@@ -4,6 +4,10 @@
   gather_facts: no
   ignore_errors: yes
   tasks:
+    - name: remove stale motd
+      ansible.builtin.file:
+        path: /etc/profile.d/motd.sh
+        state: absent
     - name: set motd
       copy:
         src: /home/cumulus/ON-18/inventory/files/motd.sh
