@@ -9,6 +9,7 @@ OS=$(grep -E '^VERSION=' /etc/os-release | cut -d "\"" -f 2)
 UP=$(uptime -p | awk '{for(i=2;i<=NF;i++){printf "%s ", $i}}')
 IPv4_mgmt=$(ip address show eth0 | grep global | awk '{print $2}')
 IPv4_lo=$(ip address show lo | grep global | awk '{print $2}' | head -n 1)
+KERNEL=$(uname -r)
 
 # Banner
 echo -e " \e[0;32m
