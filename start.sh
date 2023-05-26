@@ -11,5 +11,5 @@ if [ -f /home/cumulus/ON-18/.additional.conf ]; then
         . /home/cumulus/ON-18/.additional.conf
 fi
 echo "please use the correct user depending on the selected training, going forward"
-
+clear
 exit 0
