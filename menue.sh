@@ -21,10 +21,12 @@ do
             ;;
         "Practice-01")
             echo "Practice-01"
+            sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/labs/practice-01/main.yaml
             break
             ;;
         "Practice-02")
             echo "Practice-02"
+            sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/labs/practice-02/main.yaml
             break
             ;;
         "Practice-03")
