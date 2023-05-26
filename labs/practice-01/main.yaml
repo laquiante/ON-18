@@ -13,7 +13,7 @@
         state: absent
     - name: copy netplan yaml
       copy:
-        src: /home/cumulus/ON-18/practice-01/{{ inventory_hostname }}
+        src: /home/cumulus/ON-18/labs/practice-01/{{ inventory_hostname }}
         dest: /etc/netplan/config.yaml
     - name: apply netplan yaml
       shell: netplan apply
@@ -31,7 +31,7 @@
   tasks:
     - name: copy startup.yaml
       copy:
-        src: /home/cumulus/ON-18/practice-01/{{ inventory_hostname }}
+        src: /home/cumulus/ON-18/labs/practice-01/{{ inventory_hostname }}
         dest: /etc/nvue.d/startup.yaml
     # aktivieren
     - name: activate changes for leaf
