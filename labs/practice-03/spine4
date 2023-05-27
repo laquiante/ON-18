@@ -1,0 +1,15 @@
+- set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '2': {}
+            '3': {}
+    system:
+      hostname: spine4
+    interface:
+      swp1-2:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
