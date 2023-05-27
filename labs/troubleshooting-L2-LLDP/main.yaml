@@ -5,7 +5,7 @@
   tasks:
     - name: copy startup.yaml
       copy:
-        src: /home/cumulus/ON-18/labs/troubleshooting-L2-LLDP/{{ inventory_hostname }}.yaml
+        src: /home/cumulus/ON-18/labs/troubleshooting-L2-LLDP/{{ inventory_hostname }}
         dest: /etc/nvue.d/startup.yaml
     # aktivieren
     - name: activate changes for leaf
