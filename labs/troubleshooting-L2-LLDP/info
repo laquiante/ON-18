@@ -1,0 +1,144 @@
+cumulus@leaf1:mgmt:~$ ip -br l
+lo               UNKNOWN        00:00:00:00:00:00 <LOOPBACK,UP,LOWER_UP>
+eth0             UP             48:b0:2d:dc:d1:65 <BROADCAST,MULTICAST,UP,LOWER_UP>
+swp1             DOWN           48:b0:2d:63:c5:45 <BROADCAST,MULTICAST>
+swp2             DOWN           48:b0:2d:2b:f8:36 <BROADCAST,MULTICAST>
+swp5             UP             48:b0:2d:b5:dc:89 <BROADCAST,MULTICAST,UP,LOWER_UP>
+swp6             UP             48:b0:2d:c6:e0:f2 <BROADCAST,MULTICAST,UP,LOWER_UP>
+swp8             DOWN           48:b0:2d:df:08:43 <BROADCAST,MULTICAST>
+swp9             DOWN           48:b0:2d:d1:2e:a1 <BROADCAST,MULTICAST>
+swp10            DOWN           48:b0:2d:29:da:b1 <BROADCAST,MULTICAST>
+mgmt             UP             8a:54:17:50:2a:37 <NOARP,MASTER,UP,LOWER_UP>
+br_default       UP             48:b0:2d:dc:d1:6d <BROADCAST,MULTICAST,UP,LOWER_UP>
+
+
+cumulus@leaf1:mgmt:~$ nv show interface swp5 lldp neighbor
+Neighbor  Remote IP      Model  SW Version  Remote Port
+--------  -------------  -----  ----------  -----------
+leaf2     192.168.200.3                     swp5
+
+
+cumulus@leaf1:mgmt:~$ nv show interface swp6 lldp neighbor
+Neighbor  Remote IP      Model  SW Version  Remote Port
+--------  -------------  -----  ----------  -----------
+leaf2     192.168.200.3                     swp6
+
+16:03:27.638602 48:b0:2d:0a:7e:d0 (oui Unknown) > 01:80:c2:00:00:00 (oui Unknown), 802.3, length 39: LLC, dsap STP (0x42) Individual, ssap STP (0x42) Command, ctrl 0x03: STP 802.1w, Rapid STP, Flags [Learn, Forward, Agreement], bridge-id 8000.48:b0:2d:c2:c9:27.8003, length 36
+        message-age 0.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
+        root-id 8000.48:b0:2d:c2:c9:27, root-pathcost 0, port-role Designated
+16:03:29.638541 48:b0:2d:0a:7e:d0 (oui Unknown) > 01:80:c2:00:00:00 (oui Unknown), 802.3, length 39: LLC, dsap STP (0x42) Individual, ssap STP (0x42) Command, ctrl 0x03: STP 802.1w, Rapid STP, Flags [Learn, Forward, Agreement], bridge-id 8000.48:b0:2d:c2:c9:27.8003, length 36
+        message-age 0.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
+        root-id 8000.48:b0:2d:c2:c9:27, root-pathcost 0, port-role Designated
+16:03:31.638535 48:b0:2d:0a:7e:d0 (oui Unknown) > 01:80:c2:00:00:00 (oui Unknown), 802.3, length 39: LLC, dsap STP (0x42) Individual, ssap STP (0x42) Command, ctrl 0x03: STP 802.1w, Rapid STP, Flags [Learn, Forward, Agreement], bridge-id 8000.48:b0:2d:c2:c9:27.8003, length 36
+        message-age 0.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
+        root-id 8000.48:b0:2d:c2:c9:27, root-pathcost 0, port-role Designated
+
+
+16:03:51.737532 48:b0:2d:0a:7e:d0 (oui Unknown) > 01:80:c2:00:00:0e (oui Unknown), ethertype LLDP (0x88cc), length 213: LLDP, length 199
+        Chassis ID TLV (1), length 7
+          Subtype MAC address (4): 48:b0:2d:c2:c9:1f (oui Unknown)
+          0x0000:  0448 b02d c2c9 1f
+        Port ID TLV (2), length 5
+          Subtype Interface Name (5): swp5
+          0x0000:  0573 7770 35
+        Time to Live TLV (3), length 2: TTL 120s
+          0x0000:  0078
+        System Name TLV (5), length 5: leaf2
+          0x0000:  6c65 6166 32
+        System Description TLV (6), length 77
+          Cumulus Linux version 5.5.0 running on QEMU Standard PC (i440FX + PIIX, 1996)
+          0x0000:  4375 6d75 6c75 7320 4c69 6e75 7820 7665
+          0x0010:  7273 696f 6e20 352e 352e 3020 7275 6e6e
+          0x0020:  696e 6720 6f6e 2051 454d 5520 5374 616e
+          0x0030:  6461 7264 2050 4320 2869 3434 3046 5820
+          0x0040:  2b20 5049 4958 2c20 3139 3936 29
+        System Capabilities TLV (7), length 4
+          System  Capabilities [Bridge, Router] (0x0014)
+          Enabled Capabilities [Bridge, Router] (0x0014)
+          0x0000:  0014 0014
+        Management Address TLV (8), length 12
+          Management Address length 5, AFI IPv4 (1): leaf2
+          Interface Index Interface Numbering (2): 2
+          0x0000:  0501 c0a8 c803 0200 0000 0200
+        Management Address TLV (8), length 24
+          Management Address length 17, AFI IPv6 (2): fe80::4ab0:2dff:fec2:c91f
+          Interface Index Interface Numbering (2): 2
+          0x0000:  1102 fe80 0000 0000 0000 4ab0 2dff fec2
+          0x0010:  c91f 0200 0000 0200
+        Port Description TLV (4), length 4: swp5
+          0x0000:  7377 7035
+        Organization specific TLV (127), length 9: OUI IEEE 802.3 Private (0x00120f)
+          Link aggregation Subtype (3)
+            aggregation status [supported], aggregation port ID 0
+          0x0000:  0012 0f03 0100 0000 00
+        Organization specific TLV (127), length 9: OUI IEEE 802.3 Private (0x00120f)
+          MAC/PHY configuration/status Subtype (1)
+            autonegotiation [none] (0x00)
+            PMD autoneg capability [unknown] (0x8000)
+            MAU type 1000BASET fdx (0x001e)
+          0x0000:  0012 0f01 0080 0000 1e
+        Organization specific TLV (127), length 6: OUI IEEE 802.3 Private (0x00120f)
+          Max frame size Subtype (4)
+            MTU size 9216
+          0x0000:  0012 0f04 2400
+        Organization specific TLV (127), length 7: OUI ANSI/TIA (0x0012bb)
+          LLDP-MED Capabilities Subtype (1)
+            Media capabilities [LLDP-MED capabilities, network policy, location identification, extended power via MDI-PSE, extended power via MDI-PD, Inventory] (0x003f)
+            Device type [network connectivity] (0x04)
+          0x0000:  0012 bb01 003f 04
+        End TLV (0), length 0
+        
+# dieses ist "unsere Schnittstelle"        
+16:03:52.742732 48:b0:2d:b5:dc:89 (oui Unknown) > 01:80:c2:00:00:0e (oui Unknown), ethertype LLDP (0x88cc), length 213: LLDP, length 199
+        Chassis ID TLV (1), length 7
+          Subtype MAC address (4): 48:b0:2d:dc:d1:65 (oui Unknown)
+          0x0000:  0448 b02d dcd1 65
+        Port ID TLV (2), length 5
+          Subtype Interface Name (5): swp5
+          0x0000:  0573 7770 35
+        Time to Live TLV (3), length 2: TTL 120s
+          0x0000:  0078
+        System Name TLV (5), length 5: leaf1
+          0x0000:  6c65 6166 31
+        System Description TLV (6), length 77
+          Cumulus Linux version 5.5.0 running on QEMU Standard PC (i440FX + PIIX, 1996)
+          0x0000:  4375 6d75 6c75 7320 4c69 6e75 7820 7665
+          0x0010:  7273 696f 6e20 352e 352e 3020 7275 6e6e
+          0x0020:  696e 6720 6f6e 2051 454d 5520 5374 616e
+          0x0030:  6461 7264 2050 4320 2869 3434 3046 5820
+          0x0040:  2b20 5049 4958 2c20 3139 3936 29
+        System Capabilities TLV (7), length 4
+          System  Capabilities [Bridge, Router] (0x0014)
+          Enabled Capabilities [Bridge, Router] (0x0014)
+          0x0000:  0014 0014
+        Management Address TLV (8), length 12
+          Management Address length 5, AFI IPv4 (1): leaf1
+          Interface Index Interface Numbering (2): 2
+          0x0000:  0501 c0a8 c802 0200 0000 0200
+        Management Address TLV (8), length 24
+          Management Address length 17, AFI IPv6 (2): fe80::4ab0:2dff:fedc:d165
+          Interface Index Interface Numbering (2): 2
+          0x0000:  1102 fe80 0000 0000 0000 4ab0 2dff fedc
+          0x0010:  d165 0200 0000 0200
+        Port Description TLV (4), length 4: swp5
+          0x0000:  7377 7035
+        Organization specific TLV (127), length 9: OUI IEEE 802.3 Private (0x00120f)
+          Link aggregation Subtype (3)
+            aggregation status [supported], aggregation port ID 0
+          0x0000:  0012 0f03 0100 0000 00
+        Organization specific TLV (127), length 9: OUI IEEE 802.3 Private (0x00120f)
+          MAC/PHY configuration/status Subtype (1)
+            autonegotiation [none] (0x00)
+            PMD autoneg capability [unknown] (0x8000)
+            MAU type 1000BASET fdx (0x001e)
+          0x0000:  0012 0f01 0080 0000 1e
+        Organization specific TLV (127), length 6: OUI IEEE 802.3 Private (0x00120f)
+          Max frame size Subtype (4)
+            MTU size 9216
+          0x0000:  0012 0f04 2400
+        Organization specific TLV (127), length 7: OUI ANSI/TIA (0x0012bb)
+          LLDP-MED Capabilities Subtype (1)
+            Media capabilities [LLDP-MED capabilities, network policy, location identification, extended power via MDI-PSE, extended power via MDI-PD, Inventory] (0x003f)
+            Device type [network connectivity] (0x04)
+          0x0000:  0012 bb01 003f 04
+        End TLV (0), length 0
