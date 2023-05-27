@@ -6,7 +6,7 @@
   tasks:
     - name: practice-07
       copy:
-        src: /home/cumulus/ON-18/labs/practice-07/{{ inventory_hostname }}.yaml
+        src: /home/cumulus/ON-18/labs/practice-07/{{ inventory_hostname }}
         dest: /etc/nvue.d/startup.yaml
     # aktivieren
     - name: activate changes for leaf
