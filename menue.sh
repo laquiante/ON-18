@@ -74,6 +74,7 @@ do
             ;;               
         "5th day TS L2")
             echo "5th day TS L2"
+            sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/labs/troubleshooting-L2-LLDP/main.yaml
             break
             ;;
         "5th day TS L3")
