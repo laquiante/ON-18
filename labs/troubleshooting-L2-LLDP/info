@@ -11,17 +11,41 @@ swp10            DOWN           48:b0:2d:29:da:b1 <BROADCAST,MULTICAST>
 mgmt             UP             8a:54:17:50:2a:37 <NOARP,MASTER,UP,LOWER_UP>
 br_default       UP             48:b0:2d:dc:d1:6d <BROADCAST,MULTICAST,UP,LOWER_UP>
 
+cumulus@leaf1:mgmt:~$ net show bridge spanning-tree
+br_default CIST info
+  enabled         yes
+  bridge id       8.000.48:B0:2D:DC:D1:6D
+  designated root 8.000.48:B0:2D:C2:C9:27
+  regional root   8.000.48:B0:2D:DC:D1:6D
+  root port       swp5 (#3)
+  path cost     20000      internal path cost   0
+  max age       20         bridge max age       20
+  forward delay 15         bridge forward delay 15
+  tx hold count 6          max hops             20
+  hello time    2          ageing time          300
+  force protocol version     rstp
+  time since topology change 594s
+  topology change count      2
+  topology change            no
+  topology change port       swp5
+  last topology change port  swp9
+
+INTERFACE  STATE  ROLE  EDGE
+---------  -----  ----  ----
+swp5       forw   Root
+swp6       disc   Altn
 
 cumulus@leaf1:mgmt:~$ nv show interface swp5 lldp neighbor
 Neighbor  Remote IP      Model  SW Version  Remote Port
 --------  -------------  -----  ----------  -----------
 leaf2     192.168.200.3                     swp5
 
-
 cumulus@leaf1:mgmt:~$ nv show interface swp6 lldp neighbor
 Neighbor  Remote IP      Model  SW Version  Remote Port
 --------  -------------  -----  ----------  -----------
 leaf2     192.168.200.3                     swp6
+
+
 
 16:03:27.638602 48:b0:2d:0a:7e:d0 (oui Unknown) > 01:80:c2:00:00:00 (oui Unknown), 802.3, length 39: LLC, dsap STP (0x42) Individual, ssap STP (0x42) Command, ctrl 0x03: STP 802.1w, Rapid STP, Flags [Learn, Forward, Agreement], bridge-id 8000.48:b0:2d:c2:c9:27.8003, length 36
         message-age 0.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
