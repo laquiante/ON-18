@@ -1,0 +1,10 @@
+- set:
+    system:
+      hostname: leaf2
+    interface:
+      swp5-6:
+        bridge:
+          domain:
+            br_default:
+              access: 1
+        type: swp
