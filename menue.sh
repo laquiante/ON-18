@@ -40,26 +40,32 @@ do
             ;;
         "Practice-03")
             echo "Practice-03"
+            sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/labs/practice-03/main.yaml
             break
             ;;
         "Practice-04")
             echo "Practice-04"
+            sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/labs/practice-04/main.yaml
             break
             ;;
         "Practice-05")
             echo "Practice-05"
+            sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/labs/practice-05/main.yaml
             break
             ;;
         "Practice-06")
             echo "Practice-06"
+            sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/labs/practice-06/main.yaml
             break
             ;;
         "Practice-07")
             echo "Practice-07"
+            sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/labs/practice-07/main.yaml
             break
             ;;
         "Practice-08")
             echo "Practice-08"
+            sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/labs/practice-08/main.yaml
             break
             ;;               
         "5th day TS L2")
