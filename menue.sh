@@ -23,7 +23,7 @@ echo "************************************* end ********************************
 echo
 echo 
 PS3='Please enter your choice: '
-options=("Cleanup" "Practice-01" "Practice-02" "Practice-03" "Practice-04" "Practice-05" "Practice-06" "Practice-07" "Practice-08" "5th day TS L2" "5th day TS L3" "5th day TS EVPN" "Quit")
+options=("Cleanup" "Practice-01" "Practice-02" "Practice-03" "Practice-04" "Practice-04 New" "Practice-05" "Practice-06" "Practice-07" "Practice-08" "5th day TS L2" "5th day TS L3" "5th day TS EVPN" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -50,6 +50,11 @@ do
         "Practice-04")
             echo "Practice-04"
             sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/labs/practice-04/main.yaml
+            break
+            ;;
+         "Practice-04 New")
+            echo "Practice-04"
+            sudo ansible-playbook -i /home/cumulus/ON-18/inventory/files/hosts /home/cumulus/ON-18/labs/practice-04/mainN.yaml
             break
             ;;
         "Practice-05")
