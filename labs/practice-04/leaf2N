@@ -14,13 +14,13 @@
       BOND2:
         bond:
           member:
-            swp8: {}
+            swp10: {}
           mlag:
             id: 2
         bridge:
           domain:
             br_default:
-              access: 2
+              access: 3
       BOND2-3:
         bond:
           mlag:
@@ -29,13 +29,13 @@
       BOND3:
         bond:
           member:
-            swp10: {}
+            swp8: {}
           mlag:
             id: 3
         bridge:
           domain:
             br_default:
-              access: 3
+              access: 2
       peerlink:
         bond:
           member:
@@ -55,3 +55,4 @@
       mac-address: 44:38:39:FF:00:01
       priority: 2000
     system:
+
