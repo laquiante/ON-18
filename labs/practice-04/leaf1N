@@ -15,16 +15,23 @@
         bond:
           member:
             swp9: {}
+          mlag:
+            id: 2
         bridge:
           domain:
             br_default:
               access: 3
       BOND2-3:
+        bond:
+          mlag:
+            enable: on
         type: bond
       BOND3:
         bond:
           member:
             swp10: {}
+          mlag:
+            id: 3
       BOND3,swp8:
         bridge:
           domain:
