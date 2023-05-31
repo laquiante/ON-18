@@ -17,6 +17,7 @@
             swp10: {}
           mlag:
             id: 2
+      BOND2,swp9:
         bridge:
           domain:
             br_default:
@@ -46,6 +47,8 @@
         base-interface: peerlink
         type: sub
         vlan: 4094
+      swp9:
+        type: swp
     mlag:
       backup:
         192.168.200.2:
@@ -55,4 +58,4 @@
       mac-address: 44:38:39:FF:00:01
       priority: 2000
     system:
-
+      hostname: leaf2
