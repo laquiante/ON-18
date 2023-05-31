@@ -49,6 +49,27 @@
         vlan: 4094
       swp9:
         type: swp
+      vlan2:
+        ip:
+          address:
+            172.16.2.253/24: {}
+          vrr:
+            address:
+              172.16.2.254/24: {}
+        vlan: 2
+      vlan2-3:
+        ip:
+          vrr:
+            enable: on
+        type: svi
+      vlan3:
+        ip:
+          address:
+            172.16.3.253/24: {}
+          vrr:
+            address:
+              172.16.3.254/24: {}
+        vlan: 3
     mlag:
       backup:
         192.168.200.2:
@@ -57,5 +78,8 @@
       init-delay: 15
       mac-address: 44:38:39:FF:00:01
       priority: 2000
+    router:
+      vrr:
+        enable: on
     system:
       hostname: leaf2
