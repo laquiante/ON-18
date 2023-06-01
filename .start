@@ -25,5 +25,5 @@ sudo -i -u cumulus bash << EOF
   fi
 
 EOF
-clear
+#clear
 exit 0 
