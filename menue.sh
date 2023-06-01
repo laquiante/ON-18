@@ -14,6 +14,7 @@ echo "*                                                                         
 echo "*                                next steps:                                                         *"
 echo "*                                                                                                    *"
 echo "*                                5 day XL professional bootcamp                                      *"
+echo "*                                3-5 day expert training       (Active-active structure)             *"
 echo "*                                custom workshop                                                     *"
 echo "*                                NVUE API workshop                                                   *"
 echo "*                                HPC monitoring workhsop       (Dual-Ring structure)                 *"
