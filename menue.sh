@@ -16,8 +16,11 @@ echo "*                                                                         
 echo "*                                5 day XL professional bootcamp                                      *"
 echo "*                                custom workshop                                                     *"
 echo "*                                NVUE API workshop                                                   *"
-echo "*                                HPC monitoring workhsop                                             *"
+echo "*                                HPC monitoring workhsop       (Dual-Ring structure)                 *"
 echo "*                                Automation workshop                                                 *"
+echo "*                                Multicast                     (Dual-Ring structure)                 *"
+echo "*                                IPv6                                                                *"
+echo "*                                OSPF/IS-IS workshop                                                 *"
 echo "*                                                                                                    *"
 echo "************************************* end ************************************************************"
 echo
