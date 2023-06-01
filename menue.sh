@@ -9,16 +9,16 @@ echo "*                                                                         
 echo "*            Menue consolidating multiple classes/offerings/workshops                                *"
 echo "*                                                                                                    *"
 echo "*                                3 day professional bootcamp (MVP)                                   *"
+echo "*                                intentionally written without roles, tasks and jinja templates      *"
 echo "*                                                                                                    *"
 echo "*                                next steps:                                                         *"
 echo "*                                                                                                    *"
 echo "*                                5 day XL professional bootcamp                                      *"
-echo "*                                                                                                    *"
+echo "*                                custom workshop                                                     *"
 echo "*                                NVUE API workshop                                                   *"
 echo "*                                HPC monitoring workhsop                                             *"
 echo "*                                Automation workshop                                                 *"
 echo "*                                                                                                    *"
-echo "*         intentionally written without roles, tasks and jinja templates                             *"
 echo "************************************* end ************************************************************"
 echo
 echo 
