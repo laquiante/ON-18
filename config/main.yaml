@@ -5,10 +5,4 @@
   user: ubuntu
   gather_facts: false
       
-    - name: copy dir    
-      ansible.builtin.copy:
-        src: /home/ubuntu/config/
-        dest: /home/cumulus/config/
-        owner: cumulus
-        group: admin
-        mode: u+rw
+
