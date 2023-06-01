@@ -21,6 +21,7 @@ echo "*                                Automation workshop                      
 echo "*                                Multicast                     (Dual-Ring structure)                 *"
 echo "*                                IPv6                                                                *"
 echo "*                                OSPF/IS-IS workshop                                                 *"
+echo "*                                EVPN-MH workshop                                                    *"
 echo "*                                                                                                    *"
 echo "************************************* end ************************************************************"
 echo
