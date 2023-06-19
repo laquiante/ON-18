@@ -1,0 +1,106 @@
+- set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '2':
+              vni:
+                '2': {}
+            '3':
+              vni:
+                '3': {}
+            '20':
+              vni:
+                '20': {}
+    evpn:
+      enable: on
+      multihoming:
+        enable: on
+    interface:
+      bond2:
+        bond:
+          member:
+            swp10: {}
+        bridge:
+          domain:
+            br_default:
+              access: 3
+        evpn:
+          multihoming:
+            segment:
+              local-id: 1
+      bond2-3:
+        evpn:
+          multihoming:
+            segment:
+              enable: on
+              mac-address: 44:38:39:FF:00:01
+        type: bond
+      bond3:
+        bond:
+          member:
+            swp8: {}
+        bridge:
+          domain:
+            br_default:
+              access: 2
+        evpn:
+          multihoming:
+            segment:
+              local-id: 2
+      lo:
+        ip:
+          address:
+            172.16.100.2/32: {}
+        type: loopback
+      swp1-2:
+        evpn:
+          multihoming:
+            uplink: on
+      swp1-2,8-9:
+        type: swp
+      swp8:
+        ip:
+          address:
+            172.16.28.1/24: {}
+      swp9:
+        bridge:
+          domain:
+            br_default:
+              access: 20
+
+    nve:
+      vxlan:
+        enable: on
+    router:
+      bgp:
+        autonomous-system: 65102
+        enable: on
+        router-id: 172.16.100.2
+    system:
+      hostname: leaf2
+    vrf:
+      default:
+        router:
+          bgp:
+            address-family:
+              ipv4-unicast:
+                enable: on
+                network:
+                  172.16.100.2/32: {}
+              l2vpn-evpn:
+                enable: on
+            enable: on
+            neighbor:
+              swp1:
+                address-family:
+                  l2vpn-evpn:
+                    enable: on
+                remote-as: external
+                type: unnumbered
+              swp2:
+                address-family:
+                  l2vpn-evpn:
+                    enable: on
+                remote-as: external
+                type: unnumbered
