@@ -33,10 +33,13 @@
         evpn:
           multihoming:
             segment:
-              enable: on
               local-id: 1
-              mac-address: 44:38:39:FF:00:01
       bond2-3:
+        evpn:
+          multihoming:
+            segment:
+              enable: on
+              mac-address: 44:38:39:FF:00:01
         type: bond
       bond3:
         bond:
@@ -46,6 +49,10 @@
           domain:
             br_default:
               access: 2
+        evpn:
+          multihoming:
+            segment:
+              local-id: 2
       lo:
         ip:
           address:
@@ -87,11 +94,15 @@
             neighbor:
               swp1:
                 address-family:
-                  l2vpn-evpn: {}
+                  ipv4-unicast: {}
+                  l2vpn-evpn:
+                    enable: on
                 remote-as: external
                 type: unnumbered
               swp2:
                 address-family:
-                  l2vpn-evpn: {}
+                  ipv4-unicast: {}
+                  l2vpn-evpn:
+                    enable: on
                 remote-as: external
                 type: unnumbered
