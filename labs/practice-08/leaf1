@@ -1,0 +1,97 @@
+- header:
+    model: VX
+    nvue-api-version: nvue_v1
+    rev-id: 1.0
+    version: Cumulus Linux 5.5.0
+- set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '2':
+              vni:
+                '2': {}
+            '3':
+              vni:
+                '3': {}
+            '10':
+              vni:
+                '10': {}
+    evpn:
+      enable: on
+      multihoming:
+        enable: on
+    interface:
+      bond2:
+        bond:
+          member:
+            swp9: {}
+        bridge:
+          domain:
+            br_default:
+              access: 3
+        evpn:
+          multihoming:
+            segment:
+              enable: on
+              local-id: 1
+              mac-address: 44:38:39:FF:00:01
+      bond2-3:
+        type: bond
+      bond3:
+        bond:
+          member:
+            swp10: {}
+        bridge:
+          domain:
+            br_default:
+              access: 2
+      lo:
+        ip:
+          address:
+            172.16.100.1/32: {}
+        type: loopback
+      swp1-2:
+        evpn:
+          multihoming:
+            uplink: on
+      swp1-2,8:
+        type: swp
+      swp8:
+        bridge:
+          domain:
+            br_default:
+              access: 10
+    nve:
+      vxlan:
+        enable: on
+    router:
+      bgp:
+        autonomous-system: 65101
+        enable: on
+        router-id: 172.16.100.1
+    system:
+      hostname: leaf1
+    vrf:
+      default:
+        router:
+          bgp:
+            address-family:
+              ipv4-unicast:
+                enable: on
+                network:
+                  172.16.100.1/32: {}
+              l2vpn-evpn:
+                enable: on
+            enable: on
+            neighbor:
+              swp1:
+                address-family:
+                  l2vpn-evpn: {}
+                remote-as: external
+                type: unnumbered
+              swp2:
+                address-family:
+                  l2vpn-evpn: {}
+                remote-as: external
+                type: unnumbered
