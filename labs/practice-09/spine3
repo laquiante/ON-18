@@ -1,4 +1,40 @@
----
+- header:
+    model: VX
+    nvue-api-version: nvue_v1
+    rev-id: 1.0
+    version: Cumulus Linux 5.5.0
 - set:
+    interface:
+      lo:
+        ip:
+          address:
+            172.16.100.3/32: {}
+        type: loopback
+      swp1:
+        ip:
+          address:
+            10.0.13.3/24: {}
+      swp1-2:
+        ip:
+          vrf: internal
+        router:
+          ospf:
+            area: 0
+            enable: on
+        type: swp
+      swp2:
+        ip:
+          address:
+            10.0.23.3/24: {}
+    router:
+      ospf:
+        enable: on
     system:
       hostname: spine3
+    vrf:
+      internal:
+        router:
+          ospf:
+            enable: on
+            router-id: 172.16.100.3
+
