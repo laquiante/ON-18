@@ -1,4 +1,78 @@
----
+- header:
+    model: VX
+    nvue-api-version: nvue_v1
+    rev-id: 1.0
+    version: Cumulus Linux 5.5.0
 - set:
+    interface:
+      bond:
+        bond:
+          member:
+            swp9: {}
+          mlag:
+            enable: on
+            id: 42
+        type: bond
+      lo:
+        ip:
+          address:
+            172.16.100.1/32: {}
+        type: loopback
+      peerlink:
+        bond:
+          member:
+            swp5: {}
+            swp6: {}
+        type: peerlink
+      peerlink.4093:
+        ip:
+          address:
+            10.0.12.1/24: {}
+        vlan: 4093
+      peerlink.4093,swp1-2:
+        ip:
+          vrf: internal
+        router:
+          ospf:
+            enable: on
+      peerlink.4093-4094:
+        base-interface: peerlink
+        type: sub
+      peerlink.4094:
+        vlan: 4094
+      swp1:
+        ip:
+          address:
+            10.0.13.1/24: {}
+      swp1-2:
+        router:
+          ospf:
+            area: 0
+        type: swp
+      swp2:
+        ip:
+          address:
+            10.0.24.1/24: {}
+    mlag:
+      backup:
+        192.168.200.3:
+          vrf: mgmt
+      enable: on
+      init-delay: 15
+      peer-ip: linklocal
+      priority: 1000
+    router:
+      ospf:
+        enable: on
     system:
+      global:
+        anycast-id: 1
       hostname: leaf1
+    vrf:
+      internal:
+        router:
+          ospf:
+            area:
+              '0': {}
+            enable: on
+            router-id: 172.16.100.1
