@@ -1,0 +1,15 @@
+- hosts: host
+  name: netplan
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: copy netplan yaml
+      copy:
+        src: /home/cumulus/ON-18/labs/practice-07/{{ inventory_hostname }}
+        dest: /etc/netplan/config.yaml
+    - name: apply netplan
+      shell: netplan apply
+    - name: verification
+      ansible.builtin.shell: /sbin/ip -br a
+      register: ipa
+    - debug: msg={{ ipa.stdout }}
