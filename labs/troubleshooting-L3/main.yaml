@@ -31,4 +31,4 @@
     # Fehlerbild
     # host1 kann sein default-gateway erreichen aber es treten doppelte Pakete auf
     # host2 kann sein default-gateway nicht erreichen
-    # host1 kann von host3 erreicht werden aber host3 kann nicht host4 erreichen
+    # host1 kann nicht host4 erreichen
