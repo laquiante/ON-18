@@ -57,6 +57,16 @@
         ip:
           address:
             172.16.2.252/24: {}
+    vrf:
+      default:
+        router:
+          static:
+            172.16.3.29/32:
+              address-family: ipv4-unicast
+              via:
+                172.16.3.19:
+                  type: ipv4-address
+
           vrr:
             address:
               172.16.2.254/24: {}
