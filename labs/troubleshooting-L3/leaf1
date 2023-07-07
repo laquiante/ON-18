@@ -1,0 +1,31 @@
+- set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '2': {}
+            '3': {}
+    system:
+      hostname: leaf1
+    interface:
+      BOND_TO_SPINES:
+        bond:
+          member:
+            swp1: {}
+            swp2: {}
+        bridge:
+          domain:
+            br_default: {}
+        type: bond
+      swp8:
+        bridge:
+          domain:
+            br_default:
+              access: 2
+      swp8-9:
+        type: swp
+      swp9:
+        bridge:
+          domain:
+            br_default:
+              access: 33
