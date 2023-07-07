@@ -1,0 +1,81 @@
+- set:
+    bridge:
+      domain:
+        br_default:
+          stp:
+            priority: 4096
+          vlan:
+            '2': {}
+            '3': {}
+    mlag:
+      backup:
+        192.168.200.5:
+          vrf: mgmt
+      enable: on
+      init-delay: 15
+      mac-address: 44:38:39:FF:00:01
+      priority: 1000
+    router:
+      vrr:
+        enable: on
+    system:
+      hostname: spine3
+    interface:
+      LEAF1:
+        bond:
+          member:
+            swp1: {}
+          mlag:
+            id: 1
+      LEAF1-2:
+        bond:
+          mlag:
+            enable: on
+        bridge:
+          domain:
+            br_default: {}
+        type: bond
+      LEAF2:
+        bond:
+          member:
+            swp2: {}
+          mlag:
+            id: 2
+      peerlink:
+        bond:
+          member:
+            swp3: {}
+            swp4: {}
+        type: peerlink
+      peerlink.4094:
+        base-interface: peerlink
+        type: sub
+        vlan: 4094
+      swp1-9:
+        type: swp
+      vlan2:
+        ip:
+          address:
+            172.16.2.252/24: {}
+          vrr:
+            address:
+              172.16.2.254/24: {}
+              172.26.2.254/24: {}
+            mac-address: 00:00:5e:00:01:02
+        vlan: 2
+      vlan2-3:
+        ip:
+          vrr:
+            enable: on
+            state:
+              up: {}
+        type: svi
+      vlan3:
+        ip:
+          address:
+            172.16.3.252/24: {}
+          vrr:
+            address:
+              172.16.3.254/24: {}
+            mac-address: 00:00:5e:00:01:03
+        vlan: 3
