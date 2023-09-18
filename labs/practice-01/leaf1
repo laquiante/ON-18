@@ -3,5 +3,5 @@
     system:
       hostname: leaf1
     interface:
-      swp1-2:
+      swp1-2,5-6,8-9:
         type: swp
