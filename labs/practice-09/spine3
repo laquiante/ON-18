@@ -30,7 +30,7 @@
       swp3:
         ip:
           address:
-            FE02:AAA2::3/64: {}
+            FD02:AAA2::3/64: {}
           vrf: external
       swp4:
         ip:
