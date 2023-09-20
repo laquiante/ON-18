@@ -1,19 +1,43 @@
+- header:
+    model: VX
+    nvue-api-version: nvue_v1
+    rev-id: 1.0
+    version: Cumulus Linux 5.5.0
 - set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '1': {}
+            '2': {}
+            '3': {}
     interface:
       bond13:
         bond:
           member:
             swp10: {}
+          mlag:
+            id: 13
       bond13,42:
+        bond:
+          mlag:
+            enable: on
+        type: bond
+      bond13,swp8:
         bridge:
           domain:
             br_default:
-              access: 3
-        type: bond
+              access: 2
       bond42:
         bond:
           member:
             swp9: {}
+          mlag:
+            id: 42
+        bridge:
+          domain:
+            br_default:
+              access: 3
       lo:
         ip:
           address:
@@ -56,11 +80,6 @@
         ip:
           address:
             10.0.24.1/24: {}
-      swp8:
-        bridge:
-          domain:
-            br_default:
-              access: 2
       vlan2:
         ip:
           address:
