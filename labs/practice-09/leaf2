@@ -5,6 +5,31 @@
     version: Cumulus Linux 5.5.0
 - set:
     interface:
+      bond13:
+        bond:
+          member:
+            swp8: {}
+          mlag:
+            id: 13
+        bridge:
+          domain:
+            br_default:
+              access: 2
+      bond13,42:
+        bond:
+          mlag:
+            enable: on
+        type: bond
+      bond42:
+        bond:
+          member:
+            swp10: {}
+          mlag:
+            id: 42
+        bridge:
+          domain:
+            br_default:
+              access: 3
       lo:
         ip:
           address:
