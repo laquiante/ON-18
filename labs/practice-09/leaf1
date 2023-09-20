@@ -53,6 +53,28 @@
         ip:
           address:
             10.0.24.1/24: {}
+      vlan2:
+        ip:
+          address:
+            172.16.2.252/24: {}
+          vrr:
+            address:
+              172.16.2.254/24: {}
+        vlan: 2
+      vlan2-3:
+        ip:
+          vrr:
+            enable: on
+        type: svi
+      vlan3:
+        ip:
+          address:
+            172.16.3.252/24: {}
+          vrr:
+            address:
+              172.16.3.254/24: {}
+        vlan: 3
+
     mlag:
       backup:
         192.168.200.3:
