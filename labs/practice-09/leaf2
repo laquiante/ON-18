@@ -26,6 +26,28 @@
         ip:
           address:
             10.0.23.2/24: {}
+      vlan2:
+        ip:
+          address:
+            172.16.2.253/24: {}
+          vrr:
+            address:
+              172.16.2.254/24: {}
+        vlan: 2
+      vlan2-3:
+        ip:
+          vrr:
+            enable: on
+        type: svi
+      vlan3:
+        ip:
+          address:
+            172.16.3.253/24: {}
+          vrr:
+            address:
+              172.16.3.254/24: {}
+        vlan: 3
+
     router:
       ospf:
         enable: on
