@@ -20,7 +20,7 @@ network:
         mii-monitor-interval: 100
         transmit-hash-policy: layer2+3
       addresses:
-      - 172.16.10.3/24
+      - 172.16.2.28/24
       routes:
       - to: 172.16.0.0/16
-        via: 172.16.10.254
+        via: 172.16.2.254
