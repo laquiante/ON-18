@@ -10,13 +10,30 @@
           address:
             172.16.100.2/32: {}
         type: loopback
+      peerlink:
+        bond:
+          member:
+            swp5: {}
+            swp6: {}
+        type: peerlink
+      peerlink.4093:
+        ip:
+          address:
+            10.0.12.2/24: {}
+        vlan: 4093
+      peerlink.4093,swp1-2:
+        ip:
+          vrf: internal
+      peerlink.4093-4094:
+        base-interface: peerlink
+        type: sub
+      peerlink.4094:
+        vlan: 4094
       swp1:
         ip:
           address:
             10.0.24.2/24: {}
       swp1-2:
-        ip:
-          vrf: internal
         router:
           ospf:
             area: 0
@@ -47,11 +64,21 @@
             address:
               172.16.3.254/24: {}
         vlan: 3
-
+    mlag:
+      backup:
+        192.168.200.2:
+          vrf: mgmt
+      enable: on
+      init-delay: 15
+      priority: 2000
     router:
       ospf:
         enable: on
+      vrr:
+        enable: on
     system:
+      global:
+        anycast-id: 1
       hostname: leaf2
     vrf:
       internal:
