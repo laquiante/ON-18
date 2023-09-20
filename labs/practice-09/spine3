@@ -14,27 +14,44 @@
         ip:
           address:
             10.0.13.3/24: {}
-      swp1-2:
+      swp1-2,4:
         ip:
           vrf: internal
         router:
           ospf:
             area: 0
             enable: on
+      swp1-4:
         type: swp
       swp2:
         ip:
           address:
             10.0.23.3/24: {}
+      swp3:
+        ip:
+          address:
+            FE02:AAA2::3/64: {}
+          vrf: external
+      swp4:
+        ip:
+          address:
+            10.0.34.3/24: {}
     router:
       ospf:
         enable: on
     system:
       hostname: spine3
     vrf:
+      external:
+        loopback:
+          ip:
+            address:
+              192.168.3.3/32: {}
+              FD02:AAA1::1/128: {}
       internal:
         router:
           ospf:
+            default-originate:
+              always: on
             enable: on
             router-id: 172.16.100.3
-
