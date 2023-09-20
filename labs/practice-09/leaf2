@@ -4,6 +4,13 @@
     rev-id: 1.0
     version: Cumulus Linux 5.5.0
 - set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '1': {}
+            '2': {}
+            '3': {}
     interface:
       bond13:
         bond:
