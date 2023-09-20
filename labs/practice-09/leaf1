@@ -1,18 +1,19 @@
-- header:
-    model: VX
-    nvue-api-version: nvue_v1
-    rev-id: 1.0
-    version: Cumulus Linux 5.5.0
 - set:
     interface:
-      bond:
+      bond13:
+        bond:
+          member:
+            swp10: {}
+      bond13,42:
+        bridge:
+          domain:
+            br_default:
+              access: 3
+        type: bond
+      bond42:
         bond:
           member:
             swp9: {}
-          mlag:
-            enable: on
-            id: 42
-        type: bond
       lo:
         ip:
           address:
@@ -30,11 +31,12 @@
             10.0.12.1/24: {}
         vlan: 4093
       peerlink.4093,swp1-2:
-        ip:
-          vrf: internal
         router:
           ospf:
             enable: on
+      peerlink.4093,swp1-2,vlan2-3:
+        ip:
+          vrf: internal
       peerlink.4093-4094:
         base-interface: peerlink
         type: sub
@@ -48,11 +50,17 @@
         router:
           ospf:
             area: 0
+      swp1-2,8:
         type: swp
       swp2:
         ip:
           address:
             10.0.24.1/24: {}
+      swp8:
+        bridge:
+          domain:
+            br_default:
+              access: 2
       vlan2:
         ip:
           address:
@@ -74,7 +82,6 @@
             address:
               172.16.3.254/24: {}
         vlan: 3
-
     mlag:
       backup:
         192.168.200.3:
@@ -85,6 +92,8 @@
       priority: 1000
     router:
       ospf:
+        enable: on
+      vrr:
         enable: on
     system:
       global:
