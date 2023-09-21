@@ -1,0 +1,15 @@
+-set:
+    system:
+      config:
+        snippet:
+          daemons
+            file: /etc/frr/daemons
+            content: |
+
+              bgpd=no
+              ospfd=yes
+              ospf6d=yes
+
+            services:
+              service: frr
+              action: restart
