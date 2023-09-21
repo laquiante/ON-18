@@ -30,8 +30,7 @@
       swp3:
         ip:
           address:
-            FD02:AAA2::3/64: {}
-          vrf: external
+            FE02:AAA2::3/64: {}
       swp4:
         ip:
           address:
@@ -42,12 +41,6 @@
     system:
       hostname: spine3
     vrf:
-      external:
-        loopback:
-          ip:
-            address:
-              192.168.3.3/32: {}
-              FD02:AAA1::1/128: {}
       internal:
         router:
           ospf:
