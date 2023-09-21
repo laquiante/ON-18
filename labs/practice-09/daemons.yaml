@@ -1,15 +1,15 @@
--set:
+cumulus@spine3:mgmt:~$ cat daemons.yaml
+- set:
     system:
-      config:
-        snippet:
-          daemons
-            file: /etc/frr/daemons
-            content: |
-
-              bgpd=no
-              ospfd=yes
-              ospf6d=yes
-
-            services:
-              service: frr
-              action: restart
+     config:
+       snippet:
+         daemons.yaml:
+           file: /etc/frr/daemons
+           # permissions: "<umask-permissions>"
+           content: |
+             # This is my content
+             ospf6d=yes
+           services:
+              frr:
+                service: frr
+                action: restart
