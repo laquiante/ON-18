@@ -9,6 +9,7 @@
         ip:
           address:
             172.16.100.3/32: {}
+            FD02:AAA1::3/128: {}
         type: loopback
       swp1:
         ip:
@@ -29,8 +30,8 @@
             10.0.23.3/24: {}
       swp3:
         ip:
-          adddress:
-            F02:AAA2::3/64: {}
+          address:
+            FD02:AAA2::3/64: {}
       swp4:
         ip:
           address:
@@ -39,6 +40,11 @@
       ospf:
         enable: on
     system:
+      config:
+        apply:
+          ignore:
+            /etc/frr/daemons: {}
+            /etc/frr/frr.conf: {}
       hostname: spine3
     vrf:
       internal:
