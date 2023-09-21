@@ -29,8 +29,8 @@
             10.0.23.3/24: {}
       swp3:
         ip:
-          address:
-            FE02:AAA2::3/64: {}
+          adddress:
+            F02:AAA2::3/64: {}
       swp4:
         ip:
           address:
