@@ -1,13 +1,30 @@
 # ALQ, Hamburg May 2023
+# ALQ, Hamburg October 2023
+
+# 192.168.200.14 oob-mgmt-switch
+# 192.168.200.8 host1
+# 192.168.200.9 host2
+# 192.168.200.10 host3
+# 192.168.200.11 host4
+# 192.168.200.12 host5
+# 192.168.200.13 host6
+# 192.168.200.2 leaf1
+# 192.168.200.3 leaf2
+# 192.168.200.4 spine3
+# 192.168.200.5 spine4
+# 192.168.200.6 superspine5
+# 192.168.200.7 superspine6
 
 #[oob-switch]
 #oob-mgmt-switch ansible_host=192.168.200.10
 
 [host]
-host1 ansible_host=192.168.200.6
-host2 ansible_host=192.168.200.7
-host3 ansible_host=192.168.200.8
-host4 ansible_host=192.168.200.9
+host1 ansible_host=192.168.200.8
+host2 ansible_host=192.168.200.9
+host3 ansible_host=192.168.200.10
+host4 ansible_host=192.168.200.11
+host5 ansible_host=192.168.200.12
+host6 ansible_host=192.168.200.13
 
 [leafspine]
 leaf1 ansible_host=192.168.200.2 
@@ -15,10 +32,17 @@ leaf2 ansible_host=192.168.200.3
 spine3 ansible_host=192.168.200.4 
 spine4 ansible_host=192.168.200.5 
 
+[leafspinesuperspine]
+leaf1 ansible_host=192.168.200.2 
+leaf2 ansible_host=192.168.200.3
+spine3 ansible_host=192.168.200.4 
+spine4 ansible_host=192.168.200.5 
+superspine5 ansible_host=192.168.200.6
+superspine6 ansible_host=192.168.200.7
+
 [leaf]
 leaf1 ansible_host=192.168.200.2 
 leaf2 ansible_host=192.168.200.3 
-
 
 [spine]
 spine3 ansible_host=192.168.200.4 
