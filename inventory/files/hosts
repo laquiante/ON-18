@@ -28,6 +28,13 @@ host1 ansible_host=192.168.200.8
 host2 ansible_host=192.168.200.9
 host3 ansible_host=192.168.200.10
 host4 ansible_host=192.168.200.11
+
+# 14-OCT-2023
+[hostall]
+host1 ansible_host=192.168.200.8
+host2 ansible_host=192.168.200.9
+host3 ansible_host=192.168.200.10
+host4 ansible_host=192.168.200.11
 host5 ansible_host=192.168.200.12
 host6 ansible_host=192.168.200.13
 
@@ -37,6 +44,7 @@ leaf2 ansible_host=192.168.200.3
 spine3 ansible_host=192.168.200.4 
 spine4 ansible_host=192.168.200.5 
 
+# 14-OCT-2023
 [leafspinesuperspine5]
 leaf1 ansible_host=192.168.200.2 
 leaf2 ansible_host=192.168.200.3
@@ -44,6 +52,7 @@ spine3 ansible_host=192.168.200.4
 spine4 ansible_host=192.168.200.5 
 superspine5 ansible_host=192.168.200.6
 
+# 14-OCT-2023
 [leafspinesuperspine]
 leaf1 ansible_host=192.168.200.2 
 leaf2 ansible_host=192.168.200.3
