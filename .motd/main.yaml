@@ -1,4 +1,4 @@
-- hosts: leafspine superspine5
+- hosts: leafspine
   name: startup
   become: yes
   gather_facts: no
