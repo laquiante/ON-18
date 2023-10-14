@@ -1,5 +1,5 @@
 -
-  hosts: host1 host2 host3 host4
+  hosts: host1 host2 host3 host4 host5 host6
   become: true
   user: ubuntu
   gather_facts: false
