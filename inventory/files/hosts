@@ -5,12 +5,10 @@
 #oob-mgmt-switch ansible_host=192.168.200.14 # 14-OCT-2023
 
 [host]
-host1 ansible_host=192.168.200.8
-host2 ansible_host=192.168.200.9
-host3 ansible_host=192.168.200.10
-host4 ansible_host=192.168.200.11
-host5 ansible_host=192.168.200.12
-host6 ansible_host=192.168.200.13
+host1 ansible_host=192.168.200.6
+host2 ansible_host=192.168.200.7
+host3 ansible_host=192.168.200.8
+host4 ansible_host=192.168.200.9
 
 [leafspine]
 leaf1 ansible_host=192.168.200.2 
