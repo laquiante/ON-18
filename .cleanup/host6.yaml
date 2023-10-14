@@ -1,0 +1,10 @@
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+      dhcp4: true
+    eth2:
+      dhcp4: false
+      addresses:
+      - 1.1.1.6/24
