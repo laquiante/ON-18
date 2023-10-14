@@ -17,6 +17,7 @@
 
 #[oob-switch]
 #oob-mgmt-switch ansible_host=192.168.200.10
+#oob-mgmt-switch ansible_host=192.168.200.14 # 14-OCT-2023
 
 [host]
 host1 ansible_host=192.168.200.8
