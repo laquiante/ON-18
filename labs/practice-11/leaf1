@@ -1,0 +1,71 @@
+- header:
+    model: VX
+    nvue-api-version: nvue_v1
+    rev-id: 1.0
+    version: Cumulus Linux 5.5.0
+- set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '1': {}
+            '11': {}
+            '12': {}
+    interface:
+      bond_host2:
+        bond:
+          member:
+            swp9: {}
+          mlag:
+            enable: on
+            id: 12
+        bridge:
+          domain:
+            br_default:
+              access: 12
+        type: bond
+      peerlink:
+        bond:
+          member:
+            swp5: {}
+            swp6: {}
+        type: peerlink
+      peerlink.4094:
+        base-interface: peerlink
+        type: sub
+        vlan: 4094
+      swp1-2:
+        bridge:
+          domain:
+            br_default: {}
+      swp1-2,8,18:
+        type: swp
+      swp8,18:
+        bridge:
+          domain:
+            br_default:
+              access: 11
+      vlan12:
+        ip:
+          address:
+            172.16.12.253/24: {}
+          vrr:
+            address:
+              172.16.12.254/24: {}
+            enable: on
+            mac-address: 00:00:5e:00:00:01
+        type: svi
+        vlan: 12
+    mlag:
+      backup:
+        192.168.200.1:
+          vrf: mgmt
+      enable: on
+      init-delay: 15
+      mac-address: 44:38:39:FF:00:01
+      priority: 1000
+    router:
+      vrr:
+        enable: on
+    system:
+      hostname: leaf1
