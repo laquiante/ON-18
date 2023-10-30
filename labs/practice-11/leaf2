@@ -8,6 +8,7 @@
       domain:
         br_default:
           vlan:
+            '11': {}
             '12': {}
     interface:
       bond1:
@@ -34,7 +35,8 @@
             id: 12
         bridge:
           domain:
-            br_default: {}
+            br_default:
+              access: 12
       peerlink:
         bond:
           member:
