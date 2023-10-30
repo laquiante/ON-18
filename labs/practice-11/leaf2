@@ -54,7 +54,7 @@
         vlan: 4094
     mlag:
       backup:
-        192.168.200.1:
+        192.168.200.2:
           vrf: mgmt
       enable: on
       mac-address: 44:38:39:FF:00:01
