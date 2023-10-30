@@ -30,22 +30,27 @@
             mac-address: 00:00:00:00:00:0B
         type: svi
         vlan: 11
+      bond:
+        bond:
+          member:
+            swp23: {}
+            swp24: {}
+        bridge:
+          domain:
+            br_default: {}
+        type: bond
       swp5:
         bridge:
           domain:
             br_default:
               access: 11
-      swp5-6,23-24:
+      swp5-6:
         type: swp
       swp6:
         bridge:
           domain:
             br_two:
               access: 11
-      swp23-24:
-        bridge:
-          domain:
-            br_default: {}
     router:
       vrr:
         enable: on
