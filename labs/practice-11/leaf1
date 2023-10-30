@@ -12,18 +12,30 @@
             '11': {}
             '12': {}
     interface:
+      bond2:
+        bond:
+          member:
+            swp2: {}
+          mlag:
+            id: 2
+        bridge:
+          domain:
+            br_default: {}
+      bond2,bond_host2:
+        bond:
+          mlag:
+            enable: on
+        type: bond
       bond_host2:
         bond:
           member:
             swp9: {}
           mlag:
-            enable: on
             id: 12
         bridge:
           domain:
             br_default:
               access: 12
-        type: bond
       peerlink:
         bond:
           member:
@@ -34,17 +46,12 @@
         base-interface: peerlink
         type: sub
         vlan: 4094
-      swp1-2:
-        bridge:
-          domain:
-            br_default: {}
-      swp1-2,8,18:
-        type: swp
       swp8,18:
         bridge:
           domain:
             br_default:
               access: 11
+        type: swp
       vlan12:
         ip:
           address:
