@@ -15,6 +15,21 @@
             '1': {}
             '11': {}
     interface:
+      SVI_B:
+        base-interface: br_two
+        ip:
+          vrf: customerB
+      SVI_B,vlan11:
+        ip:
+          address:
+            172.16.11.253/24: {}
+          vrr:
+            address:
+              172.16.11.254/24: {}
+            enable: on
+            mac-address: 00:00:00:00:00:0B
+        type: svi
+        vlan: 11
       swp5:
         bridge:
           domain:
@@ -31,22 +46,6 @@
         bridge:
           domain:
             br_default: {}
-      vlan11:
-        vlan: 11
-      vlan11,111:
-        ip:
-          address:
-            172.16.11.253/24: {}
-          vrr:
-            address:
-              172.16.11.254/24: {}
-            enable: on
-            mac-address: 00:00:00:00:00:0B
-        type: svi
-      vlan111:
-        ip:
-          vrf: customerB
-        vlan: 111
     router:
       vrr:
         enable: on
