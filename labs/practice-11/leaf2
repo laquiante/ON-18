@@ -14,24 +14,18 @@
       bond1:
         bond:
           member:
+            swp1: {}
             swp2: {}
           mlag:
             id: 1
-      bond1-2:
         bridge:
           domain:
             br_default: {}
-      bond1-2,bond_host2:
+      bond1,bond_host2:
         bond:
           mlag:
             enable: on
         type: bond
-      bond2:
-        bond:
-          member:
-            swp1: {}
-          mlag:
-            id: 2
       bond_host2:
         bond:
           member:
