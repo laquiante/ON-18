@@ -1,3 +1,8 @@
+- header:
+    model: VX
+    nvue-api-version: nvue_v1
+    rev-id: 1.0
+    version: Cumulus Linux 5.5.0
 - set:
     bridge:
       domain:
@@ -17,17 +22,27 @@
         bridge:
           domain:
             br_default: {}
+      bond1-2,bond_host1-2:
+        type: bond
       bond1-2,bond_host2:
         bond:
           mlag:
             enable: on
-        type: bond
       bond2:
         bond:
           member:
             swp2: {}
           mlag:
             id: 2
+      bond_host1:
+        bond:
+          member:
+            swp8: {}
+            swp18: {}
+        bridge:
+          domain:
+            br_default:
+              access: 11
       bond_host2:
         bond:
           member:
@@ -48,17 +63,11 @@
         base-interface: peerlink
         type: sub
         vlan: 4094
-      swp8,10,18:
-        type: swp
-      swp8,18:
-        bridge:
-          domain:
-            br_default:
-              access: 11
       swp10:
         ip:
           address:
             172.16.13.253/24: {}
+        type: swp
       vlan12:
         ip:
           address:
