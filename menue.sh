@@ -29,7 +29,7 @@ echo "************************************* end ********************************
 echo
 echo 
 PS3='Please enter your choice: '
-options=("Cleanup" "Practice-01" "Practice-02" "Practice-03" "Practice-04" "Practice-04 New" "Practice-05" "Practice-06" "Practice-07" "Practice-08" "Practice-09" Practice-11" "5th day TS L3" "5th day TS L2" "5th day TS L3" "5th day TS EVPN" "Quit")
+options=("Cleanup" "Practice-01" "Practice-02" "Practice-03" "Practice-04" "Practice-04 New" "Practice-05" "Practice-06" "Practice-07" "Practice-08" "Practice-09" "Practice-11" "5th day TS L3" "5th day TS L2" "5th day TS L3" "5th day TS EVPN" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
