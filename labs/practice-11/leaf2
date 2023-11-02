@@ -52,6 +52,12 @@
         base-interface: peerlink
         type: sub
         vlan: 4094
+      swp8:
+        bridge:
+          domain:
+            br_default:
+              access: 14
+        type: swp
       vlan11:
         ip:
           address:
@@ -59,9 +65,12 @@
           vrr:
             address:
               172.16.11.254/24: {}
-            mac-address: 00:00:AA:AA:AA:AA
         vlan: 11
-      vlan11-12:
+      vlan11,14:
+        ip:
+          vrr:
+            mac-address: 00:00:AA:AA:AA:AA
+      vlan11-12,14:
         ip:
           vrr:
             enable: on
@@ -75,6 +84,14 @@
               172.16.12.254/24: {}
             mac-address: 00:00:5e:00:00:01
         vlan: 12
+      vlan14:
+        ip:
+          address:
+            172.16.14.253/24: {}
+          vrr:
+            address:
+              172.16.14.254/24: {}
+        vlan: 14
     mlag:
       backup:
         192.168.200.2:
