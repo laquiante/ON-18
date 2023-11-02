@@ -14,9 +14,10 @@
         bond:
           member:
             swp1: {}
+            swp2: {}
           mlag:
             id: 1
-      bond1-2,5:
+      bond1,5:
         bond:
           mlag:
             enable: on
@@ -24,12 +25,6 @@
           domain:
             br_default: {}
         type: bond
-      bond2:
-        bond:
-          member:
-            swp2: {}
-          mlag:
-            id: 2
       bond5:
         bond:
           member:
