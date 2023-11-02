@@ -8,7 +8,13 @@ network:
       dhcp4: false
       addresses:
       - 172.16.14.1/24
+      routes:
+      - to: 172.16.25.0/24
+        via: 172.16.14.253
     eth3:
       dhcp4: false
       addresses:
       - 172.16.13.1/24
+      routes:
+      - to: 172.16.26.0/24
+        via: 172.16.13.253
