@@ -9,6 +9,6 @@ network:
       addresses:
       - 172.16.15.1/24
     eth3:
-      dhcp4: flase
+      dhcp4: false
       addresses:
       - 172.6.16.1/24
