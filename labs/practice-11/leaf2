@@ -52,6 +52,17 @@
         base-interface: peerlink
         type: sub
         vlan: 4094
+      vlan12:
+        ip:
+          address:
+            172.16.12.252/24: {}
+          vrr:
+            address:
+              172.16.12.254/24: {}
+            enable: on
+            mac-address: 00:00:5e:00:00:01
+        type: svi
+        vlan: 12
     mlag:
       backup:
         192.168.200.2:
@@ -60,5 +71,8 @@
       mac-address: 44:38:39:FF:00:01
       peer-ip: linklocal
       priority: 2000
+    router:
+      vrr:
+        enable: on
     system:
       hostname: leaf2
