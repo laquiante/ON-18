@@ -52,6 +52,20 @@
         base-interface: peerlink
         type: sub
         vlan: 4094
+      vlan11:
+        ip:
+          address:
+            172.16.11.253/24: {}
+          vrr:
+            address:
+              172.16.11.254/24: {}
+            mac-address: 00:00:AA:AA:AA:AA
+        vlan: 11
+      vlan11-12:
+        ip:
+          vrr:
+            enable: on
+        type: svi
       vlan12:
         ip:
           address:
@@ -59,9 +73,7 @@
           vrr:
             address:
               172.16.12.254/24: {}
-            enable: on
             mac-address: 00:00:5e:00:00:01
-        type: svi
         vlan: 12
     mlag:
       backup:
