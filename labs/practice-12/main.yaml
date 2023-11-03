@@ -1,0 +1,28 @@
+---
+- hosts: leafspinesuperspine5
+  name: startup
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: practice-11
+      copy:
+        src: /home/cumulus/ON-18/labs/practice-12/{{ inventory_hostname }}
+        dest: /etc/nvue.d/startup.yaml
+    # aktivieren
+    - name: activate changes for leaf
+      shell: nv config apply startup -y
+
+- hosts: host
+# please configure host5 and host6 manually until the auto-setup is expaned to include them
+# user ubuntu 
+# password nvidia
+  name: netplan
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: copy netplan yaml
+      copy:
+        src: /home/cumulus/ON-18/labs/practice-12/{{ inventory_hostname }}
+        dest: /etc/netplan/config.yaml
+    - name: apply netplan
+      shell: netplan apply
