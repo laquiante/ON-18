@@ -1,0 +1,101 @@
+- header:
+    model: VX
+    nvue-api-version: nvue_v1
+    rev-id: 1.0
+    version: Cumulus Linux 5.5.0
+- set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '11': {}
+            '12': {}
+    interface:
+      bond1:
+        bond:
+          member:
+            swp1: {}
+            swp2: {}
+          mlag:
+            id: 1
+        bridge:
+          domain:
+            br_default: {}
+      bond1,bond_host2:
+        bond:
+          mlag:
+            enable: on
+        type: bond
+      bond_host2:
+        bond:
+          member:
+            swp10: {}
+          mlag:
+            id: 12
+        bridge:
+          domain:
+            br_default:
+              access: 12
+      peerlink:
+        bond:
+          member:
+            swp5: {}
+            swp6: {}
+        type: peerlink
+      peerlink.4094:
+        base-interface: peerlink
+        type: sub
+        vlan: 4094
+      swp8:
+        bridge:
+          domain:
+            br_default:
+              access: 14
+        type: swp
+      vlan11:
+        ip:
+          address:
+            172.16.11.253/24: {}
+          vrr:
+            address:
+              172.16.11.254/24: {}
+        vlan: 11
+      vlan11,14:
+        ip:
+          vrr:
+            mac-address: 00:00:AA:AA:AA:AA
+      vlan11-12,14:
+        ip:
+          vrr:
+            enable: on
+        type: svi
+      vlan12:
+        ip:
+          address:
+            172.16.12.252/24: {}
+          vrr:
+            address:
+              172.16.12.254/24: {}
+            mac-address: 00:00:5e:00:00:01
+        vlan: 12
+      vlan14:
+        ip:
+          address:
+            172.16.14.253/24: {}
+          vrr:
+            address:
+              172.16.14.254/24: {}
+        vlan: 14
+    mlag:
+      backup:
+        192.168.200.2:
+          vrf: mgmt
+      enable: on
+      mac-address: 44:38:39:FF:00:01
+      peer-ip: linklocal
+      priority: 2000
+    router:
+      vrr:
+        enable: on
+    system:
+      hostname: leaf2
