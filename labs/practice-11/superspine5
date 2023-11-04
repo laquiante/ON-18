@@ -10,16 +10,8 @@
           vlan:
             '1': {}
             '11': {}
-        br_two:
-          vlan:
-            '1': {}
-            '11': {}
     interface:
-      SVI_B:
-        base-interface: br_two
-        ip:
-          vrf: customerB
-      SVI_B,vlan11:
+      vlan11:
         ip:
           address:
             172.16.11.253/24: {}
@@ -59,5 +51,4 @@
         auto-save:
           enable: on
       hostname: superspine5
-    vrf:
-      customerB: {}
+
