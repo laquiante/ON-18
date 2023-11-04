@@ -4,7 +4,7 @@
   become: yes
   gather_facts: no
   tasks:
-    - name: practice-11
+    - name: practice-12
       copy:
         src: /home/cumulus/ON-18/labs/practice-12/{{ inventory_hostname }}
         dest: /etc/nvue.d/startup.yaml
