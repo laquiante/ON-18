@@ -10,6 +10,7 @@
           vlan:
             '11': {}
             '12': {}
+            '14': {}
     interface:
       bond1:
         bond:
@@ -99,3 +100,12 @@
         enable: on
     system:
       hostname: leaf2
+    vrf:
+      default:
+        router:
+          static:
+            172.16.13.0/24:
+              address-family: ipv4-unicast
+              via:
+                172.16.14.250:
+                  type: ipv4-address
