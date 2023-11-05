@@ -22,9 +22,11 @@ network:
   vlans:
     bond0.17:
       id: 17
+      link: bond0
       addresses: [172.16.17.10/24]
     bond0.18:
       id: 18
+      link: bond0
       addresses: [172.16.18.10/24]
       routes:
       - to: 172.16.0.0/24
