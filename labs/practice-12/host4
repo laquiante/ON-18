@@ -6,9 +6,26 @@ network:
       dhcp4: true
     eth2:
       dhcp4: false
-      addresses:
-      - 172.16.15.1/24
     eth3:
       dhcp4: false
-      addresses:
-      - 172.6.16.1/24
+  bonds:
+    bond0:
+      dhcp4: false
+      interfaces:
+      - eth2
+      - eth3
+      parameters:
+        mode: 802.3ad
+        lacp-rate: fast
+        mii-monitor-interval: 100
+        transmit-hash-policy: layer2+3
+  vlans:
+    bond0.17:
+      id: 17
+      addresses: [172.16.17.10/24]
+    bond0.18:
+      id: 18
+      addresses: [172.16.18.10/24]
+      routes:
+      - to: 172.16.0.0/24
+        via: 172.16.18.253
