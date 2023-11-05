@@ -26,6 +26,7 @@
         bond:
           mlag:
             enable: on
+      bond1,bond_host2,4:
         type: bond
       bond_host2:
         bond:
@@ -37,6 +38,25 @@
           domain:
             br_default:
               access: 12
+      bond_host4:
+        bond:
+          member:
+            swp9: {}
+            swp19: {}
+      bond_host4.17:
+        ip:
+          address:
+            172.16.17.253/24: {}
+        vlan: 17
+      bond_host4.17-18:
+        base-interface: bond_host4
+      bond_host4.17-18,peerlink.4094:
+        type: sub
+      bond_host4.18:
+        ip:
+          address:
+            172.16.18.253/24: {}
+        vlan: 18
       peerlink:
         bond:
           member:
@@ -45,7 +65,6 @@
         type: peerlink
       peerlink.4094:
         base-interface: peerlink
-        type: sub
         vlan: 4094
       swp8:
         bridge:
