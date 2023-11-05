@@ -29,5 +29,5 @@ network:
       link: bond0
       addresses: [172.16.18.10/24]
       routes:
-      - to: 172.16.0.0/24
+      - to: 172.16.0.0/16
         via: 172.16.18.253
