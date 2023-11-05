@@ -11,6 +11,7 @@
             '1': {}
             '11': {}
             '12': {}
+            '14': {}
     interface:
       bond1:
         bond:
@@ -72,8 +73,14 @@
               172.16.12.254/24: {}
             enable: on
             mac-address: 00:00:5e:00:00:01
-        type: svi
         vlan: 12
+      vlan12,14:
+        type: svi
+      vlan14:
+        ip:
+          address:
+            172.16.14.250/24: {}
+        vlan: 14
     mlag:
       backup:
         192.168.200.3:
