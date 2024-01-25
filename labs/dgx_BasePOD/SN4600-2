@@ -1,0 +1,154 @@
+### copied also 1:1 from dgx basePOD deployment guide 25.01.2024
+
+# Note Make sure to update the IP addresses in the sample config below 
+# eth0 mgmt interface configs 
+nv set interface eth0 ip address 10.227.20.79/26 
+nv set interface eth0 ip gateway 10.227.20.65 
+nv set interface eth0 ip vrf mgmt 
+nv set interface eth0 type eth 
+# Creating SVI interfaces and adding the VLANs to the bridge 
+# Note Make sure to update the IP addresses 
+nv set bridge domain br_default vlan 122 
+nv set bridge domain br_default vlan 121 
+nv set interface vlan121 type svi 
+nv set interface vlan121 ip vrr mac-address 44:38:39:ff:ff:ff 
+nv set interface vlan121 ip vrr address 10.227.52.1/26 
+nv set interface vlan121 ip address 10.227.52.3/26 
+nv set interface vlan122 type svi 
+nv set interface vlan122 ip vrr mac-address 44:38:39:ff:ff:ff 
+nv set interface vlan122 ip vrr address 10.227.48.1/26 
+nv set interface vlan122 ip address 10.227.48.3/26 
+# MLAG configs 
+nv set interface peerlink bond member swp57 
+nv set interface peerlink bond member swp58 
+nv set interface peerlink type peerlink 
+nv set interface peerlink.4094 base-interface peerlink 
+nv set interface peerlink.4094 type sub 
+nv set interface peerlink.4094 vlan 4094 
+nv set mlag backup 10.227.20.78 vrf mgmt 
+nv set mlag enable on 
+nv set mlag mac-address 44:38:39:ff:ff:ff 
+nv set mlag peer-ip linklocal 
+### bcm headnode 01 
+nv set interface swp1 bridge domain br_default access 122 
+### bcm headnode 02 
+nv set interface swp2 bridge domain br_default access 122 
+### bond4-20 used to connect to DGX and Kubernetes master nodes 
+nv set interface bond4 bond member swp4 
+nv set interface bond4 bond mlag id 4 
+nv set interface bond4 bridge domain br_default untagged 122 
+nv set interface bond4 bridge domain br_default vlan all 
+nv set interface bond4 bond mlag enable on 
+nv set interface bond4 bond lacp-bypass on 
+nv set interface bond5 bond member swp5 
+nv set interface bond5 bond mlag id 5 
+nv set interface bond5 bridge domain br_default untagged 122 
+nv set interface bond5 bridge domain br_default vlan all 
+nv set interface bond5 bond mlag enable on 
+nv set interface bond5 bond lacp-bypass on
+nv set interface bond6 bond member swp6 
+nv set interface bond6 bond mlag id 6 
+nv set interface bond6 bridge domain br_default untagged 122 
+nv set interface bond6 bridge domain br_default vlan all 
+nv set interface bond6 bond mlag enable on 
+nv set interface bond6 bond lacp-bypass on 
+nv set interface bond7 bond member swp7 
+nv set interface bond7 bond mlag id 7 
+nv set interface bond7 bridge domain br_default untagged 122 
+nv set interface bond7 bridge domain br_default vlan all 
+nv set interface bond7 bond mlag enable on 
+nv set interface bond7 bond lacp-bypass on 
+nv set interface bond8 bond member swp8 
+nv set interface bond8 bond mlag id 8 
+nv set interface bond8 bridge domain br_default untagged 122 
+nv set interface bond8 bridge domain br_default vlan all 
+nv set interface bond8 bond mlag enable on 
+nv set interface bond8 bond lacp-bypass on 
+nv set interface bond9 bond member swp9 
+nv set interface bond9 bond mlag id 9 
+nv set interface bond9 bridge domain br_default untagged 122 
+nv set interface bond9 bridge domain br_default vlan all 
+nv set interface bond9 bond mlag enable on 
+nv set interface bond9 bond lacp-bypass on 
+nv set interface bond10 bond member swp10 
+nv set interface bond10 bond mlag id 10 
+nv set interface bond10 bridge domain br_default untagged 122 
+nv set interface bond10 bridge domain br_default vlan all 
+nv set interface bond10 bond mlag enable on 
+nv set interface bond10 bond lacp-bypass on 
+nv set interface bond11 bond member swp11 
+nv set interface bond11 bond mlag id 11 
+nv set interface bond11 bridge domain br_default untagged 122 
+nv set interface bond11 bridge domain br_default vlan all 
+nv set interface bond11 bond mlag enable on 
+nv set interface bond11 bond lacp-bypass on 
+nv set interface bond12 bond member swp12 
+nv set interface bond12 bond mlag id 12 
+nv set interface bond12 bridge domain br_default untagged 122 
+nv set interface bond12 bridge domain br_default vlan all 
+nv set interface bond12 bond mlag enable on 
+nv set interface bond12 bond lacp-bypass on 
+nv set interface bond13 bond member swp13 
+nv set interface bond13 bond mlag id 13 
+nv set interface bond13 bridge domain br_default untagged 122 
+nv set interface bond13 bridge domain br_default vlan all 
+nv set interface bond13 bond mlag enable on 
+nv set interface bond13 bond lacp-bypass on 
+nv set interface bond14 bond member swp14 
+nv set interface bond14 bond mlag id 14 
+nv set interface bond14 bridge domain br_default untagged 122 
+nv set interface bond14 bridge domain br_default vlan all 
+nv set interface bond14 bond mlag enable on 
+nv set interface bond14 bond lacp-bypass on 
+nv set interface bond15 bond member swp15 
+nv set interface bond15 bond mlag id 15 
+nv set interface bond15 bridge domain br_default untagged 122
+NVIDIA DGX BasePOD Deployment Guide DG-11192-003 V2 | xiv 
+nv set interface bond15 bridge domain br_default vlan all 
+nv set interface bond15 bond mlag enable on 
+nv set interface bond15 bond lacp-bypass on 
+nv set interface bond16 bond member swp16 
+nv set interface bond16 bond mlag id 16 
+nv set interface bond16 bridge domain br_default untagged 122 
+nv set interface bond16 bridge domain br_default vlan all 
+nv set interface bond16 bond mlag enable on 
+nv set interface bond16 bond lacp-bypass on 
+nv set interface bond17 bond member swp17 
+nv set interface bond17 bond mlag id 17 
+nv set interface bond17 bridge domain br_default untagged 122 
+nv set interface bond17 bridge domain br_default vlan all 
+nv set interface bond17 bond mlag enable on 
+nv set interface bond17 bond lacp-bypass on 
+nv set interface bond18 bond member swp18 
+nv set interface bond18 bond mlag id 18 
+nv set interface bond18 bridge domain br_default untagged 122 
+nv set interface bond18 bridge domain br_default vlan all 
+nv set interface bond18 bond mlag enable on 
+nv set interface bond18 bond lacp-bypass on 
+nv set interface bond19 bond member swp19 
+nv set interface bond19 bond mlag id 19 
+nv set interface bond19 bridge domain br_default untagged 122 
+nv set interface bond19 bridge domain br_default vlan all 
+nv set interface bond19 bond mlag enable on 
+nv set interface bond19 bond lacp-bypass on 
+nv set interface bond20 bond member swp20 
+nv set interface bond20 bond mlag id 20 
+nv set interface bond20 bridge domain br_default untagged 122 
+nv set interface bond20 bridge domain br_default vlan all 
+nv set interface bond20 bond mlag enable on 
+nv set interface bond20 bond lacp-bypass on 
+### BGP unnumbered configuration (NOTE: no IPs need to be configured on the BGP interfaces, when using BGP unnumbered) 
+nv set router bgp autonomous-system 4200000003 
+nv set router bgp enable on 
+nv set router bgp router-id 10.227.20.79 
+nv set vrf default router bgp address-family ipv4-unicast enable on 
+nv set vrf default router bgp address-family ipv4-unicast redistribute connected enable on 
+nv set vrf default router bgp enable on 
+nv set vrf default router bgp neighbor swp63 remote-as external 
+nv set vrf default router bgp neighbor swp63 type unnumbered 
+nv set vrf default router bgp neighbor swp64 remote-as external 
+nv set vrf default router bgp neighbor swp64 type unnumbered 
+nv set vrf default router bgp neighbor swp60 remote-as external 
+nv set vrf default router bgp neighbor swp60 type unnumbered 
+nv set vrf default router bgp neighbor peerlink.4094 remote-as internal 
+nv set vrf default router bgp neighbor peerlink.4094 type unnumbered
