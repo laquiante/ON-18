@@ -1,11 +1,13 @@
 ### copied also 1:1 from dgx basePOD deployment guide 25.01.2024
+### Air-Topology running CL 5.7
+nv set system hostname SN4600-2
 
 # Note Make sure to update the IP addresses in the sample config below 
 # eth0 mgmt interface configs 
-nv set interface eth0 ip address 10.227.20.79/26 
-nv set interface eth0 ip gateway 10.227.20.65 
-nv set interface eth0 ip vrf mgmt 
-nv set interface eth0 type eth 
+### nv set interface eth0 ip address 10.227.20.79/26 
+### nv set interface eth0 ip gateway 10.227.20.65 
+### nv set interface eth0 ip vrf mgmt 
+### nv set interface eth0 type eth 
 # Creating SVI interfaces and adding the VLANs to the bridge 
 # Note Make sure to update the IP addresses 
 nv set bridge domain br_default vlan 122 
