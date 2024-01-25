@@ -1,0 +1,22 @@
+#eth0 
+nv set interface eth0 ip address 10.227.20.77/26 
+nv set interface eth0 ip gateway 10.227.20.65 
+nv set interface eth0 ip vrf mgmt 
+nv set interface eth0 type eth 
+# Creating SVI interfaces and adding the VLANs to the bridge 
+# Note Make sure to update the IP addresses 
+nv set interface vlan111 ip address 10.227.20.65/26 
+nv set bridge domain br_default vlan 111 
+### BGP configurations 
+nv set router bgp autonomous-system 4200000004 
+nv set router bgp enable on 
+nv set router bgp router-id 10.227.20.77 
+nv set vrf default router bgp address-family ipv4-unicast enable on 
+nv set vrf default router bgp address-family ipv4-unicast redistribute connected enable on 
+nv set vrf default router bgp enable on 
+nv set vrf default router bgp neighbor swp51 remote-as external 
+nv set vrf default router bgp neighbor swp51 type unnumbered 
+nv set vrf default router bgp neighbor swp52 remote-as external 
+nv set vrf default router bgp neighbor swp52 type unnumbered 
+# interfaces connected to IPMI interfaces of different servers 
+nv set interface swp1-40 bridge domain br_default access 111
