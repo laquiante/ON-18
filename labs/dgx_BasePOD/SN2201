@@ -22,4 +22,6 @@ nv set vrf default router bgp neighbor swp51 type unnumbered
 nv set vrf default router bgp neighbor swp52 remote-as external 
 nv set vrf default router bgp neighbor swp52 type unnumbered 
 # interfaces connected to IPMI interfaces of different servers 
-nv set interface swp1-40 bridge domain br_default access 111
+### nv set interface swp1-40 bridge domain br_default access 111
+### line above replaced by the following line 25.01.2024 to run in Academy-Air-Topology
+nv set interface swp1-11 bridge domain br_default access 111
