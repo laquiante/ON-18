@@ -1,5 +1,7 @@
 ### copied 1:1 from dgx_basepod deployment guide 25.01.2024
 ### modified lines
+### Air-Topology running CL 5.7
+nv set system hostname SN2201
 
 #eth0 
 ### nv set interface eth0 ip address 10.227.20.77/26 
