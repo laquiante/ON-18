@@ -1,5 +1,7 @@
 ### copy from DGX BasePOD deployment guide 25.01.2024
 ### modified at or following
+### Air-Topology running CL 5.7
+nv set system hostname SN4600-1
 
 # Note Make sure to update the IP addresses in the sample config below 
 # eth0 mgmt interface configs 
